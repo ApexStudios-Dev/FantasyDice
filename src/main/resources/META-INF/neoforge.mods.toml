@@ -1,0 +1,21 @@
+modLoader="javafml"
+loaderVersion="[4,)"
+license="AllRightsReserved"
+
+[[mods]]
+    modId="fantasydice"
+    version="${file.jarVersion}"
+    displayName="FantasyDice"
+    credits="Apex - Programming"
+    authors="ApexStudios"
+    description="Fantasy's Dice"
+
+[[dependencies.fantasydice]]
+    modId="apexcore"
+    type="required"
+    versionRange="[21.4,)"
+
+#[[accessTransformers]]
+#    file="META-INF/accesstransformer.cfg"
+#[[mixins]]
+#    config="META-INF/fantasydice.mixins.json"
