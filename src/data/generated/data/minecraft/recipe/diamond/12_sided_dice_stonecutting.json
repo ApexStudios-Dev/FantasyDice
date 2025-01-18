@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "#c:gems/diamond",
+  "result": {
+    "components": {
+      "fantasydice:material": "diamond",
+      "fantasydice:sides": 12
+    },
+    "count": 1,
+    "id": "fantasydice:dice"
+  }
+}

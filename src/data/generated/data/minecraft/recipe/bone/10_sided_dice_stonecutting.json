@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "#c:bones",
+  "result": {
+    "components": {
+      "fantasydice:material": "bone",
+      "fantasydice:sides": 10
+    },
+    "count": 1,
+    "id": "fantasydice:dice"
+  }
+}

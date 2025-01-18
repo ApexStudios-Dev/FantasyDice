@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "#minecraft:planks",
+  "result": {
+    "components": {
+      "fantasydice:material": "wooden",
+      "fantasydice:sides": 8
+    },
+    "count": 1,
+    "id": "fantasydice:dice"
+  }
+}

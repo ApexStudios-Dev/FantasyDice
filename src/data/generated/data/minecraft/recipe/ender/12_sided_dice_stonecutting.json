@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "#c:ender_pearls",
+  "result": {
+    "components": {
+      "fantasydice:material": "ender",
+      "fantasydice:sides": 12
+    },
+    "count": 1,
+    "id": "fantasydice:dice"
+  }
+}

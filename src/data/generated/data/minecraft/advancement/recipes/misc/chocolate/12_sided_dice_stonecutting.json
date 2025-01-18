@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "criteria": {
+    "has_crops_cocoa_bean": {
+      "conditions": {
+        "items": [
+          {
+            "items": "#c:crops/cocoa_bean"
+          }
+        ]
+      },
+      "trigger": "minecraft:inventory_changed"
+    },
+    "has_the_recipe": {
+      "conditions": {
+        "recipe": "minecraft:chocolate/12_sided_dice_stonecutting"
+      },
+      "trigger": "minecraft:recipe_unlocked"
+    }
+  },
+  "requirements": [
+    [
+      "has_the_recipe",
+      "has_crops_cocoa_bean"
+    ]
+  ],
+  "rewards": {
+    "recipes": [
+      "minecraft:chocolate/12_sided_dice_stonecutting"
+    ]
+  }
+}

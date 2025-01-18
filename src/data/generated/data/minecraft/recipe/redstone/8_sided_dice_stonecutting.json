@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "#c:dusts/redstone",
+  "result": {
+    "components": {
+      "fantasydice:material": "redstone",
+      "fantasydice:sides": 8
+    },
+    "count": 1,
+    "id": "fantasydice:dice"
+  }
+}

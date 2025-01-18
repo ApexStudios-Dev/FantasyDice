@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "#c:gems/amethyst",
+  "result": {
+    "components": {
+      "fantasydice:material": "amethyst",
+      "fantasydice:sides": 8
+    },
+    "count": 1,
+    "id": "fantasydice:dice"
+  }
+}

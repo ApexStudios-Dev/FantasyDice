@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "minecraft:paper",
+  "result": {
+    "components": {
+      "fantasydice:material": "paper",
+      "fantasydice:sides": 6
+    },
+    "count": 1,
+    "id": "fantasydice:dice"
+  }
+}

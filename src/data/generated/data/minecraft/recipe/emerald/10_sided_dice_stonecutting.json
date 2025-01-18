@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "#c:gems/emerald",
+  "result": {
+    "components": {
+      "fantasydice:material": "emerald",
+      "fantasydice:sides": 10
+    },
+    "count": 1,
+    "id": "fantasydice:dice"
+  }
+}

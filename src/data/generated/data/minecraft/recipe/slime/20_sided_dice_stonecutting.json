@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "#c:slime_balls",
+  "result": {
+    "components": {
+      "fantasydice:material": "slime",
+      "fantasydice:sides": 20
+    },
+    "count": 1,
+    "id": "fantasydice:dice"
+  }
+}

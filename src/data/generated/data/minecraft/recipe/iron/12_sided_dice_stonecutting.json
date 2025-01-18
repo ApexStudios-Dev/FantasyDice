@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "#c:ingots/iron",
+  "result": {
+    "components": {
+      "fantasydice:material": "iron",
+      "fantasydice:sides": 12
+    },
+    "count": 1,
+    "id": "fantasydice:dice"
+  }
+}

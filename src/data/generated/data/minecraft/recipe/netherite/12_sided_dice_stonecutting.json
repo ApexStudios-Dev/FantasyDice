@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "#c:ingots/netherite",
+  "result": {
+    "components": {
+      "fantasydice:material": "netherite",
+      "fantasydice:sides": 12
+    },
+    "count": 1,
+    "id": "fantasydice:dice"
+  }
+}

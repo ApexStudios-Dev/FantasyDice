@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:item/generated",
+  "textures": {
+    "layer0": "fantasydice:item/emerald/12_sided"
+  }
+}
