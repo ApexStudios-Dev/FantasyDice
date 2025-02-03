@@ -6,9 +6,11 @@ license="AllRightsReserved"
     modId="fantasydice"
     version="${file.jarVersion}"
     displayName="FantasyDice"
-    credits="Apex - Programming"
+    credits="Apex - Programming, Fantasy - Artist"
     authors="ApexStudios"
-    description="Fantasy's Dice"
+    description="Fantasy's Dice adds various Dungeons & Dragons inspired Dice to Minecraft."
+    logoFile="logo.png"
+    displayURL="https://modrinth.com/mod/fantasy-dice"
 
 [[dependencies.fantasydice]]
     modId="apexcore"
