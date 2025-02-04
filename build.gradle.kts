@@ -22,6 +22,8 @@ dependencies {
 }
 
 publishMods {
+    type = ReleaseType.ALPHA
+
     modrinth {
         projectId = "hPeyEJEZ"
     }
