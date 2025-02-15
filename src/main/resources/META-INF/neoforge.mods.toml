@@ -14,9 +14,22 @@ issueTrackerURL="https://github.com/ApexStudios-Dev/Issues/issues"
     displayURL="https://modrinth.com/mod/fantasy-dice"
 
 [[dependencies.fantasydice]]
+    modId="minecraft"
+    type="required"
+    versionRange="[1.21.4,1.21.5)"
+    ordering="NONE"
+    side="BOTH"
+[[dependencies.fantasydice]]
+    modId="neoforge"
+    type="required"
+    versionRange="[21.4,21.5)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.fantasydice]]
     modId="apexcore"
     type="required"
-    versionRange="[21.4,)"
+    versionRange="[21.4,21.5)"
 
 #[[accessTransformers]]
 #    file="META-INF/accesstransformer.cfg"
