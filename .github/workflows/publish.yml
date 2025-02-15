@@ -15,3 +15,4 @@ jobs:
             name: "Fantasy's Dice"
             logo: "https://raw.githubusercontent.com/ApexStudios-Dev/.github/refs/heads/master/assets/minecraft/new/fantasydice.png"
             color: "14843531" # E27E8B
+            github_package_url: "https://maven.pkg.github.com/ApexStudios-Dev/FantasyDice"
