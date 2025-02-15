@@ -10,7 +10,7 @@ jobs:
         secrets: inherit
         with:
             curseforge_id: "573867"
-            # modrinth_id: "hPeyEJEZ"
+            modrinth_id: "hPeyEJEZ"
             release_type: "alpha"
             name: "Fantasy's Dice"
             logo: "https://raw.githubusercontent.com/ApexStudios-Dev/.github/refs/heads/master/assets/minecraft/new/fantasydice.png"
