@@ -1,3 +1,5 @@
+name: Publish
+
 on:
     workflow_dispatch:
     push:
@@ -6,13 +8,13 @@ on:
 
 jobs:
     publish:
+        name: Publish Fantasy's Dice
         uses: ApexStudios-Dev/.github/.github/workflows/publish-mod.yml@master
-        secrets: inherit
         with:
-            curseforge_id: "573867"
-            modrinth_id: "hPeyEJEZ"
-            release_type: "alpha"
-            name: "Fantasy's Dice"
-            logo: "https://raw.githubusercontent.com/ApexStudios-Dev/.github/refs/heads/master/assets/minecraft/new/fantasydice.png"
-            color: "14843531" # E27E8B
+            display_name: Fantasy's Dice
+            logo_url: https://raw.githubusercontent.com/ApexStudios-Dev/.github/refs/heads/master/assets/minecraft/new/fantasydice.png
+            color: 0xE27E8B
+            release_type: alpha
             artifact_id: fantasydice
+            curseforge_id: "573867"
+            modrinth_id: hPeyEJEZ
