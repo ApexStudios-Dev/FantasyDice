@@ -10,6 +10,7 @@ jobs:
     publish:
         name: Publish Fantasy's Dice
         uses: ApexStudios-Dev/.github/.github/workflows/publish-mod.yml@master
+        secrets: inherit
         with:
             display_name: Fantasy's Dice
             logo_url: https://raw.githubusercontent.com/ApexStudios-Dev/.github/refs/heads/master/assets/minecraft/new/fantasydice.png
