@@ -24,7 +24,7 @@ public final class DiceSidesSelectModelProperty implements SelectItemModelProper
 
     @Override
     public Codec<Integer> valueCodec() {
-        return Codec.INT;
+        return FantasyDice.SIDES_CODEC;
     }
 
     @Override

@@ -24,7 +24,7 @@ public final class DiceMaterialSelectModelProperty implements SelectItemModelPro
 
     @Override
     public Codec<String> valueCodec() {
-        return Codec.STRING;
+        return FantasyDice.MATERIAL_CODEC;
     }
 
     @Override
