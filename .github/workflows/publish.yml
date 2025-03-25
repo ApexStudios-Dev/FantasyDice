@@ -10,10 +10,11 @@ jobs:
     publish:
         name: Publish Fantasy's Dice
         uses: ApexStudios-Dev/.github/.github/workflows/publish-mod.yml@master
+        secrets: inherit
         with:
             display_name: Fantasy's Dice
             logo_url: https://raw.githubusercontent.com/ApexStudios-Dev/.github/refs/heads/master/assets/minecraft/new/fantasydice.png
-            color: 0xE27E8B
+            color: 0xFFA8BF
             release_type: alpha
             artifact_id: fantasydice
             curseforge_id: "573867"

@@ -1,5 +1,6 @@
 package dev.apexstudios.fantasydice.client;
 
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
 import dev.apexstudios.fantasydice.DiceItem;
 import dev.apexstudios.fantasydice.FantasyDice;
@@ -19,6 +20,11 @@ public final class DiceSidesSelectModelProperty implements SelectItemModelProper
     @Override
     public Integer get(ItemStack stack, @Nullable ClientLevel level, @Nullable LivingEntity entity, int seed, ItemDisplayContext displayContext) {
         return DiceItem.getSides(stack);
+    }
+
+    @Override
+    public Codec<Integer> valueCodec() {
+        return FantasyDice.SIDES_CODEC;
     }
 
     @Override

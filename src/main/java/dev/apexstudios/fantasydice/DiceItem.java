@@ -1,7 +1,7 @@
 package dev.apexstudios.fantasydice;
 
 import dev.apexstudios.apexcore.lib.util.CustomCooldownGroup;
-import java.util.List;
+import java.util.function.Consumer;
 import java.util.stream.IntStream;
 import net.minecraft.network.chat.CommonComponents;
 import net.minecraft.network.chat.Component;
@@ -14,6 +14,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.TooltipFlag;
+import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.Level;
 import net.neoforged.fml.loading.FMLEnvironment;
 
@@ -42,15 +43,15 @@ public final class DiceItem extends Item implements CustomCooldownGroup {
     }
 
     @Override
-    public void appendHoverText(ItemStack stack, TooltipContext context, List<Component> tooltipComponents, TooltipFlag tooltipFlag) {
+    public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> adder, TooltipFlag tooltipFlag) {
         if(FMLEnvironment.production || !tooltipFlag.isAdvanced())
             return;
 
         var sides = getSides(stack);
         var material = getMaterial(stack);
 
-        tooltipComponents.add(Component.literal("Sides: " + sides));
-        tooltipComponents.add(Component.literal("Material: " + material));
+        adder.accept(Component.literal("Sides: " + sides));
+        adder.accept(Component.literal("Material: " + material));
     }
 
     @Override
@@ -94,10 +95,7 @@ public final class DiceItem extends Item implements CustomCooldownGroup {
         var total = IntStream.of(rolls).sum();
 
         return Component.translatable(ROLL_KEY, player.getDisplayName(), buildComponent(total, stack.getCount(), sides))
-                .withStyle(style -> style.withHoverEvent(new HoverEvent(
-                        HoverEvent.Action.SHOW_TEXT,
-                        buildComponent(stack.getStyledHoverName(), rolls)
-                )));
+                .withStyle(style -> style.withHoverEvent(new HoverEvent.ShowText(buildComponent(stack.getStyledHoverName(), rolls))));
     }
 
     private static Component buildComponent(int roll, int count, int sides) {
