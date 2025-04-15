@@ -1,21 +1,21 @@
 name: Publish
 
 on:
-    workflow_dispatch:
-    push:
-        branches: [ "**/main" ]
-        paths: [ "**/src/**" ]
+  workflow_dispatch:
+  push:
+    branches: [ "**/main" ]
+    paths: [ "**/src/**" ]
 
 jobs:
-    publish:
-        name: Publish Fantasy's Dice
-        uses: ApexStudios-Dev/.github/.github/workflows/publish-mod.yml@master
-        secrets: inherit
-        with:
-            display_name: Fantasy's Dice
-            logo_url: https://raw.githubusercontent.com/ApexStudios-Dev/.github/refs/heads/master/assets/minecraft/new/fantasydice.png
-            color: 0xFFA8BF
-            release_type: release
-            artifact_id: fantasydice
-            curseforge_id: "573867"
-            modrinth_id: hPeyEJEZ
+  publish:
+    name: Publish Fantasy's Dice
+    uses: ApexStudios-Dev/.github/.github/workflows/publish-mod.yml@master
+    secrets: inherit
+    with:
+      display_name: Fantasy's Dice
+      logo_url: https://raw.githubusercontent.com/ApexStudios-Dev/.github/refs/heads/master/assets/minecraft/new/fantasydice.png
+      color: 0xFFA8BF
+      release_type: release
+      artifact_id: fantasydice
+      curseforge_id: "573867"
+      modrinth_id: hPeyEJEZ
