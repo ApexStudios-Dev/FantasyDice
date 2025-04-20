@@ -19,5 +19,5 @@ jobs:
       artifact-id: fantasydice
       display-name: Fantasy's Dice
       release-type: release
-      logo-url: 'https://raw.githubusercontent.com/ApexStudios-Dev/.github/refs/heads/master/assets/minecraft/fantasydice/logo.png'
+      logo-url: 'https://raw.githubusercontent.com/ApexStudios-Dev/.github/refs/heads/master/assets/minecraft/fantasydice/banner.png'
       color: 0xFFA8BF
