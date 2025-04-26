@@ -21,3 +21,4 @@ jobs:
       release-type: release
       logo-url: 'https://raw.githubusercontent.com/ApexStudios-Dev/.github/refs/heads/master/assets/minecraft/fantasydice/banner.png'
       color: 0xFFA8BF
+      src-dir: src
