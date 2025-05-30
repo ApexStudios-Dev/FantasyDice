@@ -8,11 +8,15 @@ plugins {
 
 group = "dev.apexstudios"
 
-apex.neoVersion("21.5.34-beta", "1.21.4", "2025.03.23")
+apex.neoVersion("21.5.0-alpha.1.21.6-pre1.20250530.090835", "2025.04.19")
 apex.extendCompilerErrors()
 
 val single = ApexSingleExtension.getOrCreate(project)
 single.withDataGen()
+
+repositories {
+    maven("https://maven.apexstudios.dev/private")
+}
 
 dependencies {
     implementation(libs.apexcore)
