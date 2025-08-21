@@ -31,7 +31,7 @@ public final class DiceItem extends Item implements CustomCooldownGroup {
         var stack = player.getItemInHand(hand);
         player.getCooldowns().addCooldown(stack, 20);
 
-        if(!level.isClientSide)
+        if(!level.isClientSide())
             return InteractionResult.SUCCESS_SERVER;
 
         var count = stack.getCount();
