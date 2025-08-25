@@ -12,6 +12,7 @@ import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemUseAnimation;
 import net.minecraft.world.item.TooltipFlag;
 import net.minecraft.world.item.component.TooltipDisplay;
 import net.minecraft.world.level.Level;
@@ -24,39 +25,28 @@ public final class DiceItem extends Item implements CustomCooldownGroup {
 
     @Override
     public InteractionResult use(Level level, Player player, InteractionHand hand) {
-        var stack = player.getItemInHand(hand);
-        player.getCooldowns().addCooldown(stack, SharedConstants.TICKS_PER_SECOND);
+        player.startUsingItem(hand);
+        return InteractionResult.CONSUME;
+    }
 
-        if(!level.isClientSide()) {
-            var count = stack.getCount();
-            var sides = getSides(stack);
+    @Override
+    public ItemUseAnimation getUseAnimation(ItemStack stack) {
+        return ItemUseAnimation.BRUSH;
+    }
 
-            var d0 = FantasyDice.DICE_ENTITY.value().getWidth() + 2.5F;
-            var d1 = 1D - d0;
-            var d2 = d0 / 2D;
+    @Override
+    public int getUseDuration(ItemStack stack, LivingEntity entity) {
+        return SharedConstants.TICKS_PER_SECOND * 10;
+    }
 
-            var x = Math.floor(player.getX());
-            var y = player.getEyeY() - .3F;
-            var z = Math.floor(player.getZ());
-            var color = player.getTeamColor();
+    @Override
+    public boolean releaseUsing(ItemStack stack, Level level, LivingEntity entity, int timeLeft) {
+        var heldTime = stack.getUseDuration(entity) - timeLeft;
 
-            for(var i = 0; i < count; i++) {
-                var roll = level.random.nextInt(sides) + 1;
-                var dice = createDiceEntity(level, stack.copyWithCount(1), player);
+        if(heldTime < SharedConstants.TICKS_PER_SECOND / 2)
+            return false;
 
-                dice.setPos(
-                        x + level.random.nextDouble() * d1 + d2,
-                        y,
-                        z + level.random.nextDouble() * d1 + d2
-                );
-
-                dice.setCustomName(Component.literal(String.valueOf(roll)).withColor(color));
-                dice.setCustomNameVisible(true);
-                level.addFreshEntity(dice);
-            }
-        }
-
-        return InteractionResult.SUCCESS;
+        return throwDice(level, stack, entity);
     }
 
     @Override
@@ -135,5 +125,42 @@ public final class DiceItem extends Item implements CustomCooldownGroup {
         );
 
         return dice;
+    }
+
+    public static boolean throwDice(Level level, ItemStack stack, LivingEntity thrower) {
+        if(stack.isEmpty())
+            return false;
+        if(level.isClientSide())
+            return true;
+
+        var count = stack.getCount();
+        var sides = getSides(stack);
+
+        var d0 = FantasyDice.DICE_ENTITY.value().getWidth() + 2.5F;
+        var d1 = 1D - d0;
+        var d2 = d0 / 2D;
+
+        var x = Math.floor(thrower.getX());
+        var y = thrower.getEyeY() - .3F;
+        var z = Math.floor(thrower.getZ());
+        var color = thrower.getTeamColor();
+        var diceStack = stack.copyWithCount(1);
+
+        for(var i = 0; i < count; i++) {
+            var roll = level.random.nextInt(sides) + 1;
+            var dice = createDiceEntity(level, diceStack, thrower);
+
+            dice.setPos(
+                    x + level.random.nextDouble() * d1 + d2,
+                    y,
+                    z + level.random.nextDouble() * d1 + d2
+            );
+
+            dice.setCustomName(Component.literal(String.valueOf(roll)).withColor(color));
+            dice.setCustomNameVisible(true);
+            level.addFreshEntity(dice);
+        }
+
+        return true;
     }
 }
