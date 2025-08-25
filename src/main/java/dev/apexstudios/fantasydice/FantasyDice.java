@@ -4,10 +4,14 @@ import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
 import dev.apexstudios.apexcore.lib.registree.Registree;
 import dev.apexstudios.apexcore.lib.registree.holder.DeferredDataComponent;
+import dev.apexstudios.apexcore.lib.registree.holder.DeferredEntity;
 import dev.apexstudios.apexcore.lib.registree.holder.DeferredItem;
+import net.minecraft.SharedConstants;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.ExtraCodecs;
+import net.minecraft.world.entity.MobCategory;
+import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.CreativeModeTab;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
@@ -33,6 +37,14 @@ public final class FantasyDice {
     public static final DeferredDataComponent<String> MATERIAL_COMPONENT = REGISTREE.registerDataComponent("material", MATERIAL_CODEC);
 
     public static final DeferredItem<DiceItem> DICE_ITEM = REGISTREE.registerItem("dice", DiceItem::new, properties -> properties.stacksTo(8));
+
+    public static final DeferredEntity<DiceEntity> DICE_ENTITY = REGISTREE.registerEntity("dice", DiceEntity::new, MobCategory.MISC, properties -> properties
+            .noLootTable()
+            .sized(.25F, .25F)
+            .eyeHeight(ItemEntity.EYE_HEIGHT)
+            .clientTrackingRange(6)
+            .updateInterval(SharedConstants.TICKS_PER_SECOND)
+    );
 
     public static final ResourceKey<CreativeModeTab> CREATIVE_MODE_TAB = REGISTREE.registerCreativeModeTab("dice", DICE_ITEM::toStack, (parameters, output) -> {
         for(var material : DEFAULT_MATERIALS) {
