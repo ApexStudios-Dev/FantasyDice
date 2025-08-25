@@ -131,14 +131,13 @@ public class DiceEntity extends Entity implements TraceableEntity {
             noPhysics = false;
         else {
             var boundingBox = getBoundingBox();
-
             noPhysics = !level().noCollision(this, boundingBox.deflate(Shapes.EPSILON));
 
             if(noPhysics)
                 moveTowardsClosestSpace(getX(), (boundingBox.minY + boundingBox.maxY) / 2D, getZ());
         }
 
-        if(!onGround() || getDeltaMovement().horizontalDistanceSqr() > Mth.EPSILON || (tickCount + getId() % 4 == 0)) {
+        if(!onGround() || getDeltaMovement().horizontalDistanceSqr() > Mth.EPSILON || (tickCount + getId()) % 4 == 0) {
             move(MoverType.SELF, getDeltaMovement());
             applyEffectsFromBlocks();
 
