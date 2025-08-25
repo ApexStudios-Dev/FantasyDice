@@ -34,7 +34,7 @@ issueTrackerURL="https://github.com/ApexStudios-Dev/Issues/issues"
         modrinth="xl3myxch"
         curseforge="550778"
 
-#[[accessTransformers]]
-#    file="META-INF/accesstransformer.cfg"
+[[accessTransformers]]
+    file="META-INF/accesstransformer.cfg"
 #[[mixins]]
 #    config="META-INF/fantasydice.mixins.json"
