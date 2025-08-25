@@ -2,6 +2,7 @@ package dev.apexstudios.fantasydice;
 
 import dev.apexstudios.apexcore.lib.util.CustomCooldownGroup;
 import java.util.function.Consumer;
+import net.minecraft.SharedConstants;
 import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.Mth;
@@ -23,8 +24,10 @@ public final class DiceItem extends Item implements CustomCooldownGroup {
 
     @Override
     public InteractionResult use(Level level, Player player, InteractionHand hand) {
+        var stack = player.getItemInHand(hand);
+        player.getCooldowns().addCooldown(stack, SharedConstants.TICKS_PER_SECOND);
+
         if(!level.isClientSide()) {
-            var stack = player.getItemInHand(hand);
             var count = stack.getCount();
             var sides = getSides(stack);
 
