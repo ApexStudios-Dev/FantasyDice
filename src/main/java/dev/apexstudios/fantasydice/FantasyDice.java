@@ -13,6 +13,7 @@ import net.minecraft.util.ExtraCodecs;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.level.GameRules;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 
@@ -53,6 +54,8 @@ public final class FantasyDice {
             }
         }
     });
+
+    public static final GameRules.Key<GameRules.IntegerValue> RULE_DICE_LIFETIME = REGISTREE.registerIntegerGameRule("diceLifetime", GameRules.Category.MISC, DiceEntity.DEFAULT_LIFETIME);
 
     public FantasyDice(IEventBus modBus) {
         REGISTREE.registerEvents(modBus);
