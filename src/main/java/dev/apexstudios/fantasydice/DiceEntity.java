@@ -33,7 +33,7 @@ public class DiceEntity extends Entity implements TraceableEntity {
     public static final String NBT_ITEM = "Item";
 
     private static final EntityDataAccessor<ItemStack> DATA_ITEM = SynchedEntityData.defineId(DiceEntity.class, EntityDataSerializers.ITEM_STACK);
-    private static final int LIFETIME = SharedConstants.TICKS_PER_SECOND * 10;
+    public static final int DEFAULT_LIFETIME = SharedConstants.TICKS_PER_SECOND * 10;
 
     private int age = 0;
     @Nullable private EntityReference<Entity> thrower;
@@ -74,7 +74,7 @@ public class DiceEntity extends Entity implements TraceableEntity {
 
     @Override
     protected void addAdditionalSaveData(ValueOutput output) {
-        output.putInt(NBT_AGE, (short) age);
+        output.putInt(NBT_AGE, age);
         EntityReference.store(thrower, output, NBT_THROWER);
 
         if(!getItem().isEmpty())
@@ -170,7 +170,7 @@ public class DiceEntity extends Entity implements TraceableEntity {
 
         var item = getItem();
 
-        if(!level().isClientSide() && age >= LIFETIME)
+        if(!level().isClientSide() && age >= getLifeTime())
             discard();
         if(item.isEmpty() && !isRemoved())
             discard();
@@ -240,5 +240,9 @@ public class DiceEntity extends Entity implements TraceableEntity {
     @Override
     public SlotAccess getSlot(int slot) {
         return slot == 0 ? SlotAccess.of(this::getItem, this::setItem) : super.getSlot(slot);
+    }
+
+    public int getLifeTime() {
+        return level() instanceof ServerLevel sLevel ? sLevel.getGameRules().getInt(FantasyDice.RULE_DICE_LIFETIME) : DEFAULT_LIFETIME;
     }
 }
