@@ -33,7 +33,7 @@ public class DiceEntity extends Entity implements TraceableEntity {
     public static final String NBT_ITEM = "Item";
 
     private static final EntityDataAccessor<ItemStack> DATA_ITEM = SynchedEntityData.defineId(DiceEntity.class, EntityDataSerializers.ITEM_STACK);
-    public static final int DEFAULT_LIFETIME = SharedConstants.TICKS_PER_SECOND * 10;
+    public static final int DEFAULT_LIFETIME = 10;
 
     private int age = 0;
     @Nullable private EntityReference<Entity> thrower;
@@ -243,6 +243,8 @@ public class DiceEntity extends Entity implements TraceableEntity {
     }
 
     public int getLifeTime() {
-        return level() instanceof ServerLevel sLevel ? sLevel.getGameRules().getInt(FantasyDice.RULE_DICE_LIFETIME) : DEFAULT_LIFETIME;
+        var lifeTime = level() instanceof ServerLevel sLevel ? sLevel.getGameRules().getInt(FantasyDice.RULE_DICE_LIFETIME) : DEFAULT_LIFETIME;
+        // gamerule format is in seconds, * by 20 to convert to ticks
+        return lifeTime * SharedConstants.TICKS_PER_SECOND;
     }
 }
