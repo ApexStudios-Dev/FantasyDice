@@ -44,6 +44,7 @@ public final class FantasyDiceDataEntryPoint {
                     .providing(ProviderTypes.LANGUAGE, (context, provider) -> {
                         provider.addCreativeModeTab(FantasyDice.CREATIVE_MODE_TAB, "Fantasy's Dice");
                         provider.add(FantasyDice.DICE_ENTITY.value(), "Dice");
+                        provider.add(FantasyDice.RULE_DICE_LIFETIME, "Dice entity lifetime", "How long thrown dice should persist in world (in seconds)");
 
                         for(var material : FantasyDice.DEFAULT_MATERIALS) {
                             for(var sides : FantasyDice.DEFAULT_SIDES) {
