@@ -84,7 +84,7 @@ public class DiceEntity extends Entity implements TraceableEntity {
     @Nullable
     @Override
     public Entity getOwner() {
-        return EntityReference.getEntity(thrower, level());
+        return EntityReference.get(thrower, level(), Entity.class);
     }
 
     @Override
@@ -223,8 +223,8 @@ public class DiceEntity extends Entity implements TraceableEntity {
             getItem().setEntityRepresentation(this);
     }
 
-    public void setThrower(@Nullable Entity thrower) {
-        this.thrower = EntityReference.of(thrower);
+    public void setThrower(Entity thrower) {
+        this.thrower = new EntityReference<>(thrower);
     }
 
     @Override

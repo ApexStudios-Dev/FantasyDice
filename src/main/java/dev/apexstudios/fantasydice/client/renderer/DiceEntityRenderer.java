@@ -3,7 +3,7 @@ package dev.apexstudios.fantasydice.client.renderer;
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
 import dev.apexstudios.fantasydice.DiceEntity;
-import net.minecraft.client.renderer.SubmitNodeCollector;
+import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import net.minecraft.client.renderer.entity.ItemEntityRenderer;
@@ -42,7 +42,7 @@ public class DiceEntityRenderer extends EntityRenderer<DiceEntity, ItemEntityRen
     }
 
     @Override
-    public void submit(ItemEntityRenderState renderState, PoseStack pose, SubmitNodeCollector collector) {
+    public void render(ItemEntityRenderState renderState, PoseStack pose, MultiBufferSource buffers, int packedLight) {
         if(renderState.item.isEmpty())
             return;
 
@@ -53,9 +53,9 @@ public class DiceEntityRenderer extends EntityRenderer<DiceEntity, ItemEntityRen
         pose.translate(0F, f1 + f, 0F);
         var f2 = ItemEntity.getSpin(renderState.ageInTicks, renderState.bobOffset);
         pose.mulPose(Axis.YP.rotation(f2));
-        ItemEntityRenderer.submitMultipleFromCount(pose, collector, renderState.lightCoords, renderState, random, aabb);
+        ItemEntityRenderer.renderMultipleFromCount(pose, buffers, packedLight, renderState, random, aabb);
         pose.popPose();
 
-        super.submit(renderState, pose, collector);
+        super.render(renderState, pose, buffers, packedLight);
     }
 }
