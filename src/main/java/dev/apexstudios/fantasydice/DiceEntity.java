@@ -224,7 +224,7 @@ public class DiceEntity extends Entity implements TraceableEntity {
     }
 
     public void setThrower(Entity thrower) {
-        this.thrower = new EntityReference<>(thrower);
+        this.thrower = EntityReference.of(thrower);
     }
 
     @Override
