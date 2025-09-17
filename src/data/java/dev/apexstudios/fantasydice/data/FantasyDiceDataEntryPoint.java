@@ -42,9 +42,9 @@ public final class FantasyDiceDataEntryPoint {
         ResourceGenerator.of(modBus, generator -> {
             generator.pack()
                     .providing(ProviderTypes.LANGUAGE, (context, provider) -> {
-                        provider.add(DiceItem.ROLL_KEY, "%s rolls %s")
-                                .add(DiceItem.RESULT_KEY, "%s (%sd%s)")
-                                .addCreativeModeTab(FantasyDice.CREATIVE_MODE_TAB, "Fantasy's Dice");
+                        provider.addCreativeModeTab(FantasyDice.CREATIVE_MODE_TAB, "Fantasy's Dice");
+                        provider.add(FantasyDice.DICE_ENTITY.value(), "Dice");
+                        provider.add(FantasyDice.RULE_DICE_LIFETIME, "Dice entity lifetime", "How long thrown dice should persist in world (in seconds)");
 
                         for(var material : FantasyDice.DEFAULT_MATERIALS) {
                             for(var sides : FantasyDice.DEFAULT_SIDES) {
@@ -77,7 +77,10 @@ public final class FantasyDiceDataEntryPoint {
                         diceRecipe("paper", Items.PAPER, provider);
                         diceRecipe("amethyst", Tags.Items.GEMS_AMETHYST, provider);
                         diceRecipe("chocolate", Tags.Items.CROPS_COCOA_BEAN, provider);
-                    });
+                    })
+                    .providing(ProviderTypes.ENTITY_TYPE_TAGS, (context, provider) -> provider
+                            .tag(Tags.EntityTypes.CAPTURING_NOT_SUPPORTED).withElement(FantasyDice.DICE_ENTITY)
+                    );
         });
     }
 

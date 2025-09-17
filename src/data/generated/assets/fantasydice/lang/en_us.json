@@ -1,4 +1,7 @@
 {
+  "entity.fantasydice.dice": "Dice",
+  "gamerule.fantasydice:diceLifetime": "Dice entity lifetime",
+  "gamerule.fantasydice:diceLifetime.description": "How long thrown dice should persist in world (in seconds)",
   "item.fantasydice.dice.amethyst.10_sided": "10-Sided Amethyst Dice",
   "item.fantasydice.dice.amethyst.12_sided": "12-Sided Amethyst Dice",
   "item.fantasydice.dice.amethyst.20_sided": "20-Sided Amethyst Dice",
@@ -77,8 +80,6 @@
   "item.fantasydice.dice.redstone.4_sided": "4-Sided Redstone Dice",
   "item.fantasydice.dice.redstone.6_sided": "6-Sided Redstone Dice",
   "item.fantasydice.dice.redstone.8_sided": "8-Sided Redstone Dice",
-  "item.fantasydice.dice.result": "%s (%sd%s)",
-  "item.fantasydice.dice.roll": "%s rolls %s",
   "item.fantasydice.dice.slime.10_sided": "10-Sided Slime Dice",
   "item.fantasydice.dice.slime.12_sided": "12-Sided Slime Dice",
   "item.fantasydice.dice.slime.20_sided": "20-Sided Slime Dice",
