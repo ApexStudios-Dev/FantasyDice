@@ -36,7 +36,7 @@ public final class DiceItem extends Item implements CustomCooldownGroup {
 
     @Override
     public void appendHoverText(ItemStack stack, TooltipContext context, TooltipDisplay display, Consumer<Component> adder, TooltipFlag tooltipFlag) {
-        if(FMLEnvironment.production || !tooltipFlag.isAdvanced())
+        if(FMLEnvironment.isProduction() || !tooltipFlag.isAdvanced())
             return;
 
         var sides = getSides(stack);
