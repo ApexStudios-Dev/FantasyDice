@@ -2,10 +2,10 @@ package dev.apexstudios.fantasydice;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;
-import dev.apexstudios.apexcore.lib.registree.Registree;
-import dev.apexstudios.apexcore.lib.registree.holder.DeferredDataComponent;
-import dev.apexstudios.apexcore.lib.registree.holder.DeferredEntity;
-import dev.apexstudios.apexcore.lib.registree.holder.DeferredItem;
+import dev.apexstudios.registree.api.Registree;
+import dev.apexstudios.registree.api.holder.DeferredDataComponent;
+import dev.apexstudios.registree.api.holder.DeferredEntity;
+import dev.apexstudios.registree.api.holder.DeferredItem;
 import net.minecraft.SharedConstants;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
@@ -20,7 +20,7 @@ import net.neoforged.fml.common.Mod;
 @Mod(FantasyDice.ID)
 public final class FantasyDice {
     public static final String ID = "fantasydice";
-    public static final Registree REGISTREE = new Registree(ID);
+    public static final Registree REGISTREE = Registree.create(ID);
 
     public static final int[] DEFAULT_SIDES = new int[] { 4, 6, 8, 10, 12, 20 };
     public static final int BASE_SIDES = DEFAULT_SIDES[0];
