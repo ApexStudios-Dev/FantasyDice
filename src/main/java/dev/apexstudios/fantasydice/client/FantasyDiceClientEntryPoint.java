@@ -2,6 +2,7 @@ package dev.apexstudios.fantasydice.client;
 
 import dev.apexstudios.fantasydice.FantasyDice;
 import dev.apexstudios.fantasydice.client.renderer.DiceEntityRenderer;
+import dev.apexstudios.fantasydice.util.DiceRegistries;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
@@ -16,6 +17,6 @@ public final class FantasyDiceClientEntryPoint {
             event.register(FantasyDice.identifier("material"), DiceMaterialSelectModelProperty.TYPE);
         });
 
-        modBus.addListener(EntityRenderersEvent.RegisterRenderers.class, event -> event.registerEntityRenderer(FantasyDice.DICE_ENTITY.value(), DiceEntityRenderer::new));
+        modBus.addListener(EntityRenderersEvent.RegisterRenderers.class, event -> event.registerEntityRenderer(DiceRegistries.DICE_ENTITY.value(), DiceEntityRenderer::new));
     }
 }
