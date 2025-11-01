@@ -22,14 +22,14 @@ side = "BOTH"
 [[dependencies.fantasydice]]
 modId = "neoforge"
 type = "required"
-versionRange = "[21.10-beta,21.11)"
+versionRange = "[21.10.30-beta,21.11)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.fantasydice]]
 modId = "apexcore"
 type = "required"
-versionRange = "[21.10-beta,21.11)"
+versionRange = "[21.10,21.11)"
 [dependencies.fantasydice.mc-publish]
 modrinth = "xl3myxch"
 curseforge = "550778"
