@@ -1,5 +1,6 @@
 package dev.apexstudios.fantasydice;
 
+import dev.apexstudios.fantasydice.util.DiceRegistries;
 import net.minecraft.SharedConstants;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -46,7 +47,7 @@ public class DiceEntity extends Entity implements TraceableEntity {
     }
 
     public DiceEntity(Level level, ItemStack stack, @Nullable Entity thrower) {
-        this(FantasyDice.DICE_ENTITY.value(), level);
+        this(DiceRegistries.DICE_ENTITY.value(), level);
 
         setItem(stack);
         setThrower(thrower);
@@ -224,7 +225,7 @@ public class DiceEntity extends Entity implements TraceableEntity {
     }
 
     public void setThrower(Entity thrower) {
-        this.thrower = new EntityReference<>(thrower);
+        this.thrower = EntityReference.of(thrower);
     }
 
     @Override
@@ -243,7 +244,7 @@ public class DiceEntity extends Entity implements TraceableEntity {
     }
 
     public int getLifeTime() {
-        var lifeTime = level() instanceof ServerLevel sLevel ? sLevel.getGameRules().getInt(FantasyDice.RULE_DICE_LIFETIME) : DEFAULT_LIFETIME;
+        var lifeTime = level() instanceof ServerLevel sLevel ? sLevel.getGameRules().getInt(DiceRegistries.RULE_DICE_LIFETIME) : DEFAULT_LIFETIME;
         // gamerule format is in seconds, * by 20 to convert to ticks
         return lifeTime * SharedConstants.TICKS_PER_SECOND;
     }

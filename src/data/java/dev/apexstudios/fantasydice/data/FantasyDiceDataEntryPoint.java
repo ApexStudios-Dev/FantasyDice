@@ -7,10 +7,11 @@ import dev.apexstudios.apexcore.lib.data.ProviderTypes;
 import dev.apexstudios.apexcore.lib.data.ResourceGenerator;
 import dev.apexstudios.apexcore.lib.data.provider.RecipeProvider;
 import dev.apexstudios.apexcore.lib.util.StringHelper;
-import dev.apexstudios.fantasydice.DiceItem;
 import dev.apexstudios.fantasydice.FantasyDice;
 import dev.apexstudios.fantasydice.client.DiceMaterialSelectModelProperty;
 import dev.apexstudios.fantasydice.client.DiceSidesSelectModelProperty;
+import dev.apexstudios.fantasydice.util.Dice;
+import dev.apexstudios.fantasydice.util.DiceRegistries;
 import java.util.function.BiConsumer;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
@@ -42,21 +43,21 @@ public final class FantasyDiceDataEntryPoint {
         ResourceGenerator.of(modBus, generator -> {
             generator.pack()
                     .providing(ProviderTypes.LANGUAGE, (context, provider) -> {
-                        provider.addCreativeModeTab(FantasyDice.CREATIVE_MODE_TAB, "Fantasy's Dice");
-                        provider.add(FantasyDice.DICE_ENTITY.value(), "Dice");
-                        provider.add(FantasyDice.RULE_DICE_LIFETIME, "Dice entity lifetime", "How long thrown dice should persist in world (in seconds)");
+                        provider.addCreativeModeTab(DiceRegistries.CREATIVE_MODE_TAB, "Fantasy's Dice");
+                        provider.addEntityType(DiceRegistries.DICE_ENTITY, "Dice");
+                        provider.add(DiceRegistries.RULE_DICE_LIFETIME, "Dice entity lifetime", "How long thrown dice should persist in world (in seconds)");
+                        provider.addItem(DiceRegistries.DICE_ITEM, "Dice");
+                        provider.add(Dice.DESCRIPTION_ID, "%s d%s");
 
-                        for(var material : FantasyDice.DEFAULT_MATERIALS) {
-                            for(var sides : FantasyDice.DEFAULT_SIDES) {
-                                provider.add(DiceItem.getDiceKey(sides, material), sides + "-Sided " + StringHelper.toEnglishName(material) + " Dice");
-                            }
+                        for(var material : Dice.DEFAULT_MATERIALS) {
+                            provider.add(Dice.getMaterialKey(material), StringHelper.toEnglishName(material));
                         }
                     })
                     .providing(ProviderTypes.MODELS, (context, provider) -> {
                         var models = provider.itemModels();
 
                         models.itemModelOutput.accept(
-                                FantasyDice.DICE_ITEM.value(),
+                                DiceRegistries.DICE_ITEM.value(),
                                 diceModels(models.modelOutput)
                         );
                     })
@@ -79,7 +80,7 @@ public final class FantasyDiceDataEntryPoint {
                         diceRecipe("chocolate", Tags.Items.CROPS_COCOA_BEAN, provider);
                     })
                     .providing(ProviderTypes.ENTITY_TYPE_TAGS, (context, provider) -> provider
-                            .tag(Tags.EntityTypes.CAPTURING_NOT_SUPPORTED).withElement(FantasyDice.DICE_ENTITY)
+                            .tag(Tags.EntityTypes.CAPTURING_NOT_SUPPORTED).withElement(DiceRegistries.DICE_ENTITY)
                     );
         });
     }
@@ -102,22 +103,22 @@ public final class FantasyDiceDataEntryPoint {
     private ItemModel.Unbaked diceModels(String material, BiConsumer<ResourceLocation, ModelInstance> modelOutput) {
         return ItemModelUtils.select(
                 DiceSidesSelectModelProperty.INSTANCE,
-                IntStream.of(FantasyDice.DEFAULT_SIDES).mapToObj(sides -> ItemModelUtils.when(sides, diceModel(sides, material, modelOutput))).toList()
+                IntStream.of(Dice.DEFAULT_SIDES).mapToObj(sides -> ItemModelUtils.when(sides, diceModel(sides, material, modelOutput))).toList()
         );
     }
 
     private ItemModel.Unbaked diceModels(BiConsumer<ResourceLocation, ModelInstance> modelOutput) {
         return ItemModelUtils.select(
                 DiceMaterialSelectModelProperty.INSTANCE,
-                Stream.of(FantasyDice.DEFAULT_MATERIALS).map(material -> ItemModelUtils.when(material, diceModels(material, modelOutput))).toList()
+                Stream.of(Dice.DEFAULT_MATERIALS).map(material -> ItemModelUtils.when(material, diceModels(material, modelOutput))).toList()
         );
     }
 
     private void diceRecipe(String material, String hasIngredientName, Ingredient ingredient, Criterion<InventoryChangeTrigger.TriggerInstance> hasIngredient, RecipeProvider provider) {
         var output = provider.output();
 
-        for(var sides : FantasyDice.DEFAULT_SIDES) {
-            ItemStackRecipeBuilder.stonecutting(ingredient, RecipeCategory.MISC, DiceItem.create(sides, material))
+        for(var sides : Dice.DEFAULT_SIDES) {
+            ItemStackRecipeBuilder.stonecutting(ingredient, RecipeCategory.MISC, Dice.create(sides, material))
                     .unlockedBy(hasIngredientName, hasIngredient)
                     .save(output, material + '/' + sides + "_sided_dice_stonecutting");
         }

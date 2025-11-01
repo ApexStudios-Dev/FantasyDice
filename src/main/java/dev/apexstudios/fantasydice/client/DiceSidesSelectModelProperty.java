@@ -2,8 +2,8 @@ package dev.apexstudios.fantasydice.client;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
-import dev.apexstudios.fantasydice.DiceItem;
-import dev.apexstudios.fantasydice.FantasyDice;
+import dev.apexstudios.fantasydice.util.DiceCodecs;
+import dev.apexstudios.fantasydice.util.DiceRegistries;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.item.properties.select.SelectItemModelProperty;
 import net.minecraft.world.entity.LivingEntity;
@@ -13,18 +13,19 @@ import org.jetbrains.annotations.Nullable;
 
 public final class DiceSidesSelectModelProperty implements SelectItemModelProperty<Integer> {
     public static final DiceSidesSelectModelProperty INSTANCE = new DiceSidesSelectModelProperty();
-    public static final Type<DiceSidesSelectModelProperty, Integer> TYPE = Type.create(MapCodec.unit(INSTANCE), FantasyDice.SIDES_CODEC);
+    public static final Type<DiceSidesSelectModelProperty, Integer> TYPE = Type.create(MapCodec.unit(INSTANCE), DiceCodecs.SIDES_CODEC);
 
     private DiceSidesSelectModelProperty() { }
 
     @Override
+    @Nullable
     public Integer get(ItemStack stack, @Nullable ClientLevel level, @Nullable LivingEntity entity, int seed, ItemDisplayContext displayContext) {
-        return DiceItem.getSides(stack);
+        return stack.get(DiceRegistries.SIDES_COMPONENT);
     }
 
     @Override
     public Codec<Integer> valueCodec() {
-        return FantasyDice.SIDES_CODEC;
+        return DiceCodecs.SIDES_CODEC;
     }
 
     @Override
