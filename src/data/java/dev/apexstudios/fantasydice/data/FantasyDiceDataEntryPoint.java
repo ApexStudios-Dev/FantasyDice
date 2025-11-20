@@ -16,14 +16,14 @@ import java.util.function.BiConsumer;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 import net.minecraft.advancements.Criterion;
-import net.minecraft.advancements.critereon.InventoryChangeTrigger;
+import net.minecraft.advancements.criterion.InventoryChangeTrigger;
 import net.minecraft.client.data.models.model.ItemModelUtils;
 import net.minecraft.client.data.models.model.ModelInstance;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TextureMapping;
 import net.minecraft.client.renderer.item.ItemModel;
 import net.minecraft.data.recipes.RecipeCategory;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
@@ -45,7 +45,7 @@ public final class FantasyDiceDataEntryPoint {
                     .providing(ProviderTypes.LANGUAGE, (context, provider) -> {
                         provider.addCreativeModeTab(DiceRegistries.CREATIVE_MODE_TAB, "Fantasy's Dice");
                         provider.addEntityType(DiceRegistries.DICE_ENTITY, "Dice");
-                        provider.add(DiceRegistries.RULE_DICE_LIFETIME, "Dice entity lifetime", "How long thrown dice should persist in world (in seconds)");
+                        provider.addGameRule(DiceRegistries.RULE_DICE_LIFETIME, "Dice entity lifetime", "How long thrown dice should persist in world (in seconds)");
                         provider.addItem(DiceRegistries.DICE_ITEM, "Dice");
                         provider.add(Dice.DESCRIPTION_ID, "%s d%s");
 
@@ -85,7 +85,7 @@ public final class FantasyDiceDataEntryPoint {
         });
     }
 
-    private ItemModel.Unbaked diceModel(int sides, String material, BiConsumer<ResourceLocation, ModelInstance> modelOutput) {
+    private ItemModel.Unbaked diceModel(int sides, String material, BiConsumer<Identifier, ModelInstance> modelOutput) {
         var model = diceModels.get(sides, material);
 
         if(model == null) {
@@ -100,14 +100,14 @@ public final class FantasyDiceDataEntryPoint {
         return model;
     }
 
-    private ItemModel.Unbaked diceModels(String material, BiConsumer<ResourceLocation, ModelInstance> modelOutput) {
+    private ItemModel.Unbaked diceModels(String material, BiConsumer<Identifier, ModelInstance> modelOutput) {
         return ItemModelUtils.select(
                 DiceSidesSelectModelProperty.INSTANCE,
                 IntStream.of(Dice.DEFAULT_SIDES).mapToObj(sides -> ItemModelUtils.when(sides, diceModel(sides, material, modelOutput))).toList()
         );
     }
 
-    private ItemModel.Unbaked diceModels(BiConsumer<ResourceLocation, ModelInstance> modelOutput) {
+    private ItemModel.Unbaked diceModels(BiConsumer<Identifier, ModelInstance> modelOutput) {
         return ItemModelUtils.select(
                 DiceMaterialSelectModelProperty.INSTANCE,
                 Stream.of(Dice.DEFAULT_MATERIALS).map(material -> ItemModelUtils.when(material, diceModels(material, modelOutput))).toList()
