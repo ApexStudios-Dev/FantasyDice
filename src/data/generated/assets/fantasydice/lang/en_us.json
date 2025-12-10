@@ -17,8 +17,8 @@
   "fantasydice.material.slime": "Slime",
   "fantasydice.material.stone": "Stone",
   "fantasydice.material.wooden": "Wooden",
-  "gamerule.fantasydice:diceLifetime": "Dice entity lifetime",
-  "gamerule.fantasydice:diceLifetime.description": "How long thrown dice should persist in world (in seconds)",
+  "gamerule.fantasydice.dice_lifetime": "Dice entity lifetime",
+  "gamerule.fantasydice.dice_lifetime.description": "How long thrown dice should persist in world (in seconds)",
   "item.fantasydice.dice": "Dice",
   "itemGroup.fantasydice.dice": "Fantasy's Dice"
 }
