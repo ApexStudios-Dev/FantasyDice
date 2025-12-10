@@ -3,7 +3,7 @@ package dev.apexstudios.fantasydice;
 import dev.apexstudios.fantasydice.util.Dice;
 import dev.apexstudios.fantasydice.util.DiceRegistries;
 import net.minecraft.SharedConstants;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.InteractionResult;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
@@ -41,7 +41,7 @@ public final class FantasyDice {
         });
     }
 
-    public static ResourceLocation identifier(String identifier) {
+    public static Identifier identifier(String identifier) {
         return DiceRegistries.REGISTREE.registryName(identifier);
     }
 }
