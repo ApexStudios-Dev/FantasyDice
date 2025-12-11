@@ -5,6 +5,7 @@ import dev.apexstudios.fantasydice.FantasyDice;
 import dev.apexstudios.registree.api.Registree;
 import dev.apexstudios.registree.api.holder.DeferredDataComponent;
 import dev.apexstudios.registree.api.holder.DeferredEntity;
+import dev.apexstudios.registree.api.holder.DeferredGameRule;
 import dev.apexstudios.registree.api.holder.DeferredItem;
 import net.minecraft.SharedConstants;
 import net.minecraft.resources.ResourceKey;
@@ -12,7 +13,7 @@ import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.GameRules;
+import net.minecraft.world.level.gamerules.GameRuleCategory;
 
 public interface DiceRegistries {
     Registree REGISTREE = Registree.create(FantasyDice.ID);
@@ -37,5 +38,5 @@ public interface DiceRegistries {
         }
     });
 
-    GameRules.Key<GameRules.IntegerValue> RULE_DICE_LIFETIME = REGISTREE.registerIntegerGameRule("diceLifetime", GameRules.Category.MISC, DiceEntity.DEFAULT_LIFETIME);
+    DeferredGameRule<Integer> RULE_DICE_LIFETIME = REGISTREE.registerIntegerGameRule("dice_lifetime", GameRuleCategory.MISC, DiceEntity.DEFAULT_LIFETIME, 0);
 }

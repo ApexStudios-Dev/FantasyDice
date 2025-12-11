@@ -160,13 +160,13 @@ public class DiceEntity extends Entity implements TraceableEntity {
         }
 
         age++;
-        hasImpulse = hasImpulse | updateInWaterStateAndDoFluidPushing();
+        needsSync = needsSync | updateInWaterStateAndDoFluidPushing();
 
         if(!level().isClientSide()) {
             var d0 = getDeltaMovement().subtract(delta).lengthSqr();
 
             if(d0 > .01D)
-                hasImpulse = true;
+                needsSync = true;
         }
 
         var item = getItem();
@@ -244,7 +244,7 @@ public class DiceEntity extends Entity implements TraceableEntity {
     }
 
     public int getLifeTime() {
-        var lifeTime = level() instanceof ServerLevel sLevel ? sLevel.getGameRules().getInt(DiceRegistries.RULE_DICE_LIFETIME) : DEFAULT_LIFETIME;
+        var lifeTime = level() instanceof ServerLevel sLevel ? sLevel.getGameRules().get(DiceRegistries.RULE_DICE_LIFETIME.value()) : DEFAULT_LIFETIME;
         // gamerule format is in seconds, * by 20 to convert to ticks
         return lifeTime * SharedConstants.TICKS_PER_SECOND;
     }
