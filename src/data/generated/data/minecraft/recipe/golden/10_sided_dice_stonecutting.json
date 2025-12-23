@@ -3,10 +3,11 @@
   "ingredient": "#c:ingots/gold",
   "result": {
     "components": {
-      "fantasydice:material": "golden",
-      "fantasydice:sides": 10
+      "fantasydice:die": {
+        "material": "golden",
+        "sides": 10
+      }
     },
-    "count": 1,
     "id": "fantasydice:dice"
   }
 }

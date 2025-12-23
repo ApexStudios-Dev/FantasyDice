@@ -3,10 +3,11 @@
   "ingredient": "#c:ingots/netherite",
   "result": {
     "components": {
-      "fantasydice:material": "netherite",
-      "fantasydice:sides": 10
+      "fantasydice:die": {
+        "material": "netherite",
+        "sides": 10
+      }
     },
-    "count": 1,
     "id": "fantasydice:dice"
   }
 }

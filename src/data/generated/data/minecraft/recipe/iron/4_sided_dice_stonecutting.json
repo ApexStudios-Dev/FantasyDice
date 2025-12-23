@@ -3,10 +3,11 @@
   "ingredient": "#c:ingots/iron",
   "result": {
     "components": {
-      "fantasydice:material": "iron",
-      "fantasydice:sides": 4
+      "fantasydice:die": {
+        "material": "iron",
+        "sides": 4
+      }
     },
-    "count": 1,
     "id": "fantasydice:dice"
   }
 }

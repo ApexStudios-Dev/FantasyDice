@@ -4,821 +4,965 @@
     "cases": [
       {
         "model": {
-          "type": "minecraft:select",
-          "cases": [
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/wooden/4_sided"
-              },
-              "when": 4
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/wooden/6_sided"
-              },
-              "when": 6
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/wooden/8_sided"
-              },
-              "when": 8
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/wooden/10_sided"
-              },
-              "when": 10
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/wooden/12_sided"
-              },
-              "when": 12
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/wooden/20_sided"
-              },
-              "when": 20
-            }
-          ],
-          "property": "fantasydice:sides"
+          "type": "minecraft:model",
+          "model": "fantasydice:item/wooden/4_sided"
         },
-        "when": "wooden"
+        "when": {
+          "material": "wooden",
+          "sides": 4
+        }
       },
       {
         "model": {
-          "type": "minecraft:select",
-          "cases": [
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/stone/4_sided"
-              },
-              "when": 4
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/stone/6_sided"
-              },
-              "when": 6
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/stone/8_sided"
-              },
-              "when": 8
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/stone/10_sided"
-              },
-              "when": 10
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/stone/12_sided"
-              },
-              "when": 12
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/stone/20_sided"
-              },
-              "when": 20
-            }
-          ],
-          "property": "fantasydice:sides"
+          "type": "minecraft:model",
+          "model": "fantasydice:item/wooden/6_sided"
         },
-        "when": "stone"
+        "when": {
+          "material": "wooden",
+          "sides": 6
+        }
       },
       {
         "model": {
-          "type": "minecraft:select",
-          "cases": [
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/bone/4_sided"
-              },
-              "when": 4
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/bone/6_sided"
-              },
-              "when": 6
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/bone/8_sided"
-              },
-              "when": 8
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/bone/10_sided"
-              },
-              "when": 10
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/bone/12_sided"
-              },
-              "when": 12
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/bone/20_sided"
-              },
-              "when": 20
-            }
-          ],
-          "property": "fantasydice:sides"
+          "type": "minecraft:model",
+          "model": "fantasydice:item/wooden/8_sided"
         },
-        "when": "bone"
+        "when": {
+          "material": "wooden",
+          "sides": 8
+        }
       },
       {
         "model": {
-          "type": "minecraft:select",
-          "cases": [
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/iron/4_sided"
-              },
-              "when": 4
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/iron/6_sided"
-              },
-              "when": 6
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/iron/8_sided"
-              },
-              "when": 8
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/iron/10_sided"
-              },
-              "when": 10
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/iron/12_sided"
-              },
-              "when": 12
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/iron/20_sided"
-              },
-              "when": 20
-            }
-          ],
-          "property": "fantasydice:sides"
+          "type": "minecraft:model",
+          "model": "fantasydice:item/wooden/10_sided"
         },
-        "when": "iron"
+        "when": {
+          "material": "wooden",
+          "sides": 10
+        }
       },
       {
         "model": {
-          "type": "minecraft:select",
-          "cases": [
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/golden/4_sided"
-              },
-              "when": 4
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/golden/6_sided"
-              },
-              "when": 6
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/golden/8_sided"
-              },
-              "when": 8
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/golden/10_sided"
-              },
-              "when": 10
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/golden/12_sided"
-              },
-              "when": 12
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/golden/20_sided"
-              },
-              "when": 20
-            }
-          ],
-          "property": "fantasydice:sides"
+          "type": "minecraft:model",
+          "model": "fantasydice:item/wooden/12_sided"
         },
-        "when": "golden"
+        "when": {
+          "material": "wooden",
+          "sides": 12
+        }
       },
       {
         "model": {
-          "type": "minecraft:select",
-          "cases": [
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/diamond/4_sided"
-              },
-              "when": 4
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/diamond/6_sided"
-              },
-              "when": 6
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/diamond/8_sided"
-              },
-              "when": 8
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/diamond/10_sided"
-              },
-              "when": 10
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/diamond/12_sided"
-              },
-              "when": 12
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/diamond/20_sided"
-              },
-              "when": 20
-            }
-          ],
-          "property": "fantasydice:sides"
+          "type": "minecraft:model",
+          "model": "fantasydice:item/wooden/20_sided"
         },
-        "when": "diamond"
+        "when": {
+          "material": "wooden",
+          "sides": 20
+        }
       },
       {
         "model": {
-          "type": "minecraft:select",
-          "cases": [
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/emerald/4_sided"
-              },
-              "when": 4
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/emerald/6_sided"
-              },
-              "when": 6
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/emerald/8_sided"
-              },
-              "when": 8
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/emerald/10_sided"
-              },
-              "when": 10
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/emerald/12_sided"
-              },
-              "when": 12
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/emerald/20_sided"
-              },
-              "when": 20
-            }
-          ],
-          "property": "fantasydice:sides"
+          "type": "minecraft:model",
+          "model": "fantasydice:item/stone/4_sided"
         },
-        "when": "emerald"
+        "when": {
+          "material": "stone",
+          "sides": 4
+        }
       },
       {
         "model": {
-          "type": "minecraft:select",
-          "cases": [
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/netherite/4_sided"
-              },
-              "when": 4
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/netherite/6_sided"
-              },
-              "when": 6
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/netherite/8_sided"
-              },
-              "when": 8
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/netherite/10_sided"
-              },
-              "when": 10
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/netherite/12_sided"
-              },
-              "when": 12
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/netherite/20_sided"
-              },
-              "when": 20
-            }
-          ],
-          "property": "fantasydice:sides"
+          "type": "minecraft:model",
+          "model": "fantasydice:item/stone/6_sided"
         },
-        "when": "netherite"
+        "when": {
+          "material": "stone",
+          "sides": 6
+        }
       },
       {
         "model": {
-          "type": "minecraft:select",
-          "cases": [
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/copper/4_sided"
-              },
-              "when": 4
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/copper/6_sided"
-              },
-              "when": 6
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/copper/8_sided"
-              },
-              "when": 8
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/copper/10_sided"
-              },
-              "when": 10
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/copper/12_sided"
-              },
-              "when": 12
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/copper/20_sided"
-              },
-              "when": 20
-            }
-          ],
-          "property": "fantasydice:sides"
+          "type": "minecraft:model",
+          "model": "fantasydice:item/stone/8_sided"
         },
-        "when": "copper"
+        "when": {
+          "material": "stone",
+          "sides": 8
+        }
       },
       {
         "model": {
-          "type": "minecraft:select",
-          "cases": [
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/ender/4_sided"
-              },
-              "when": 4
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/ender/6_sided"
-              },
-              "when": 6
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/ender/8_sided"
-              },
-              "when": 8
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/ender/10_sided"
-              },
-              "when": 10
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/ender/12_sided"
-              },
-              "when": 12
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/ender/20_sided"
-              },
-              "when": 20
-            }
-          ],
-          "property": "fantasydice:sides"
+          "type": "minecraft:model",
+          "model": "fantasydice:item/stone/10_sided"
         },
-        "when": "ender"
+        "when": {
+          "material": "stone",
+          "sides": 10
+        }
       },
       {
         "model": {
-          "type": "minecraft:select",
-          "cases": [
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/frozen/4_sided"
-              },
-              "when": 4
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/frozen/6_sided"
-              },
-              "when": 6
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/frozen/8_sided"
-              },
-              "when": 8
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/frozen/10_sided"
-              },
-              "when": 10
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/frozen/12_sided"
-              },
-              "when": 12
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/frozen/20_sided"
-              },
-              "when": 20
-            }
-          ],
-          "property": "fantasydice:sides"
+          "type": "minecraft:model",
+          "model": "fantasydice:item/stone/12_sided"
         },
-        "when": "frozen"
+        "when": {
+          "material": "stone",
+          "sides": 12
+        }
       },
       {
         "model": {
-          "type": "minecraft:select",
-          "cases": [
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/slime/4_sided"
-              },
-              "when": 4
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/slime/6_sided"
-              },
-              "when": 6
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/slime/8_sided"
-              },
-              "when": 8
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/slime/10_sided"
-              },
-              "when": 10
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/slime/12_sided"
-              },
-              "when": 12
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/slime/20_sided"
-              },
-              "when": 20
-            }
-          ],
-          "property": "fantasydice:sides"
+          "type": "minecraft:model",
+          "model": "fantasydice:item/stone/20_sided"
         },
-        "when": "slime"
+        "when": {
+          "material": "stone",
+          "sides": 20
+        }
       },
       {
         "model": {
-          "type": "minecraft:select",
-          "cases": [
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/redstone/4_sided"
-              },
-              "when": 4
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/redstone/6_sided"
-              },
-              "when": 6
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/redstone/8_sided"
-              },
-              "when": 8
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/redstone/10_sided"
-              },
-              "when": 10
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/redstone/12_sided"
-              },
-              "when": 12
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/redstone/20_sided"
-              },
-              "when": 20
-            }
-          ],
-          "property": "fantasydice:sides"
+          "type": "minecraft:model",
+          "model": "fantasydice:item/bone/4_sided"
         },
-        "when": "redstone"
+        "when": {
+          "material": "bone",
+          "sides": 4
+        }
       },
       {
         "model": {
-          "type": "minecraft:select",
-          "cases": [
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/paper/4_sided"
-              },
-              "when": 4
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/paper/6_sided"
-              },
-              "when": 6
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/paper/8_sided"
-              },
-              "when": 8
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/paper/10_sided"
-              },
-              "when": 10
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/paper/12_sided"
-              },
-              "when": 12
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/paper/20_sided"
-              },
-              "when": 20
-            }
-          ],
-          "property": "fantasydice:sides"
+          "type": "minecraft:model",
+          "model": "fantasydice:item/bone/6_sided"
         },
-        "when": "paper"
+        "when": {
+          "material": "bone",
+          "sides": 6
+        }
       },
       {
         "model": {
-          "type": "minecraft:select",
-          "cases": [
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/amethyst/4_sided"
-              },
-              "when": 4
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/amethyst/6_sided"
-              },
-              "when": 6
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/amethyst/8_sided"
-              },
-              "when": 8
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/amethyst/10_sided"
-              },
-              "when": 10
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/amethyst/12_sided"
-              },
-              "when": 12
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/amethyst/20_sided"
-              },
-              "when": 20
-            }
-          ],
-          "property": "fantasydice:sides"
+          "type": "minecraft:model",
+          "model": "fantasydice:item/bone/8_sided"
         },
-        "when": "amethyst"
+        "when": {
+          "material": "bone",
+          "sides": 8
+        }
       },
       {
         "model": {
-          "type": "minecraft:select",
-          "cases": [
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/chocolate/4_sided"
-              },
-              "when": 4
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/chocolate/6_sided"
-              },
-              "when": 6
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/chocolate/8_sided"
-              },
-              "when": 8
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/chocolate/10_sided"
-              },
-              "when": 10
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/chocolate/12_sided"
-              },
-              "when": 12
-            },
-            {
-              "model": {
-                "type": "minecraft:model",
-                "model": "fantasydice:item/chocolate/20_sided"
-              },
-              "when": 20
-            }
-          ],
-          "property": "fantasydice:sides"
+          "type": "minecraft:model",
+          "model": "fantasydice:item/bone/10_sided"
         },
-        "when": "chocolate"
+        "when": {
+          "material": "bone",
+          "sides": 10
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/bone/12_sided"
+        },
+        "when": {
+          "material": "bone",
+          "sides": 12
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/bone/20_sided"
+        },
+        "when": {
+          "material": "bone",
+          "sides": 20
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/iron/4_sided"
+        },
+        "when": {
+          "material": "iron",
+          "sides": 4
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/iron/6_sided"
+        },
+        "when": {
+          "material": "iron",
+          "sides": 6
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/iron/8_sided"
+        },
+        "when": {
+          "material": "iron",
+          "sides": 8
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/iron/10_sided"
+        },
+        "when": {
+          "material": "iron",
+          "sides": 10
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/iron/12_sided"
+        },
+        "when": {
+          "material": "iron",
+          "sides": 12
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/iron/20_sided"
+        },
+        "when": {
+          "material": "iron",
+          "sides": 20
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/golden/4_sided"
+        },
+        "when": {
+          "material": "golden",
+          "sides": 4
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/golden/6_sided"
+        },
+        "when": {
+          "material": "golden",
+          "sides": 6
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/golden/8_sided"
+        },
+        "when": {
+          "material": "golden",
+          "sides": 8
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/golden/10_sided"
+        },
+        "when": {
+          "material": "golden",
+          "sides": 10
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/golden/12_sided"
+        },
+        "when": {
+          "material": "golden",
+          "sides": 12
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/golden/20_sided"
+        },
+        "when": {
+          "material": "golden",
+          "sides": 20
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/diamond/4_sided"
+        },
+        "when": {
+          "material": "diamond",
+          "sides": 4
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/diamond/6_sided"
+        },
+        "when": {
+          "material": "diamond",
+          "sides": 6
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/diamond/8_sided"
+        },
+        "when": {
+          "material": "diamond",
+          "sides": 8
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/diamond/10_sided"
+        },
+        "when": {
+          "material": "diamond",
+          "sides": 10
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/diamond/12_sided"
+        },
+        "when": {
+          "material": "diamond",
+          "sides": 12
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/diamond/20_sided"
+        },
+        "when": {
+          "material": "diamond",
+          "sides": 20
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/emerald/4_sided"
+        },
+        "when": {
+          "material": "emerald",
+          "sides": 4
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/emerald/6_sided"
+        },
+        "when": {
+          "material": "emerald",
+          "sides": 6
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/emerald/8_sided"
+        },
+        "when": {
+          "material": "emerald",
+          "sides": 8
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/emerald/10_sided"
+        },
+        "when": {
+          "material": "emerald",
+          "sides": 10
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/emerald/12_sided"
+        },
+        "when": {
+          "material": "emerald",
+          "sides": 12
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/emerald/20_sided"
+        },
+        "when": {
+          "material": "emerald",
+          "sides": 20
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/netherite/4_sided"
+        },
+        "when": {
+          "material": "netherite",
+          "sides": 4
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/netherite/6_sided"
+        },
+        "when": {
+          "material": "netherite",
+          "sides": 6
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/netherite/8_sided"
+        },
+        "when": {
+          "material": "netherite",
+          "sides": 8
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/netherite/10_sided"
+        },
+        "when": {
+          "material": "netherite",
+          "sides": 10
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/netherite/12_sided"
+        },
+        "when": {
+          "material": "netherite",
+          "sides": 12
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/netherite/20_sided"
+        },
+        "when": {
+          "material": "netherite",
+          "sides": 20
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/copper/4_sided"
+        },
+        "when": {
+          "material": "copper",
+          "sides": 4
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/copper/6_sided"
+        },
+        "when": {
+          "material": "copper",
+          "sides": 6
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/copper/8_sided"
+        },
+        "when": {
+          "material": "copper",
+          "sides": 8
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/copper/10_sided"
+        },
+        "when": {
+          "material": "copper",
+          "sides": 10
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/copper/12_sided"
+        },
+        "when": {
+          "material": "copper",
+          "sides": 12
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/copper/20_sided"
+        },
+        "when": {
+          "material": "copper",
+          "sides": 20
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/ender/4_sided"
+        },
+        "when": {
+          "material": "ender",
+          "sides": 4
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/ender/6_sided"
+        },
+        "when": {
+          "material": "ender",
+          "sides": 6
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/ender/8_sided"
+        },
+        "when": {
+          "material": "ender",
+          "sides": 8
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/ender/10_sided"
+        },
+        "when": {
+          "material": "ender",
+          "sides": 10
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/ender/12_sided"
+        },
+        "when": {
+          "material": "ender",
+          "sides": 12
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/ender/20_sided"
+        },
+        "when": {
+          "material": "ender",
+          "sides": 20
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/frozen/4_sided"
+        },
+        "when": {
+          "material": "frozen",
+          "sides": 4
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/frozen/6_sided"
+        },
+        "when": {
+          "material": "frozen",
+          "sides": 6
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/frozen/8_sided"
+        },
+        "when": {
+          "material": "frozen",
+          "sides": 8
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/frozen/10_sided"
+        },
+        "when": {
+          "material": "frozen",
+          "sides": 10
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/frozen/12_sided"
+        },
+        "when": {
+          "material": "frozen",
+          "sides": 12
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/frozen/20_sided"
+        },
+        "when": {
+          "material": "frozen",
+          "sides": 20
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/slime/4_sided"
+        },
+        "when": {
+          "material": "slime",
+          "sides": 4
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/slime/6_sided"
+        },
+        "when": {
+          "material": "slime",
+          "sides": 6
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/slime/8_sided"
+        },
+        "when": {
+          "material": "slime",
+          "sides": 8
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/slime/10_sided"
+        },
+        "when": {
+          "material": "slime",
+          "sides": 10
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/slime/12_sided"
+        },
+        "when": {
+          "material": "slime",
+          "sides": 12
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/slime/20_sided"
+        },
+        "when": {
+          "material": "slime",
+          "sides": 20
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/redstone/4_sided"
+        },
+        "when": {
+          "material": "redstone",
+          "sides": 4
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/redstone/6_sided"
+        },
+        "when": {
+          "material": "redstone",
+          "sides": 6
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/redstone/8_sided"
+        },
+        "when": {
+          "material": "redstone",
+          "sides": 8
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/redstone/10_sided"
+        },
+        "when": {
+          "material": "redstone",
+          "sides": 10
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/redstone/12_sided"
+        },
+        "when": {
+          "material": "redstone",
+          "sides": 12
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/redstone/20_sided"
+        },
+        "when": {
+          "material": "redstone",
+          "sides": 20
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/paper/4_sided"
+        },
+        "when": {
+          "material": "paper",
+          "sides": 4
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/paper/6_sided"
+        },
+        "when": {
+          "material": "paper",
+          "sides": 6
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/paper/8_sided"
+        },
+        "when": {
+          "material": "paper",
+          "sides": 8
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/paper/10_sided"
+        },
+        "when": {
+          "material": "paper",
+          "sides": 10
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/paper/12_sided"
+        },
+        "when": {
+          "material": "paper",
+          "sides": 12
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/paper/20_sided"
+        },
+        "when": {
+          "material": "paper",
+          "sides": 20
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/amethyst/4_sided"
+        },
+        "when": {
+          "material": "amethyst",
+          "sides": 4
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/amethyst/6_sided"
+        },
+        "when": {
+          "material": "amethyst",
+          "sides": 6
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/amethyst/8_sided"
+        },
+        "when": {
+          "material": "amethyst",
+          "sides": 8
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/amethyst/10_sided"
+        },
+        "when": {
+          "material": "amethyst",
+          "sides": 10
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/amethyst/12_sided"
+        },
+        "when": {
+          "material": "amethyst",
+          "sides": 12
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/amethyst/20_sided"
+        },
+        "when": {
+          "material": "amethyst",
+          "sides": 20
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/chocolate/4_sided"
+        },
+        "when": {
+          "material": "chocolate",
+          "sides": 4
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/chocolate/6_sided"
+        },
+        "when": {
+          "material": "chocolate",
+          "sides": 6
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/chocolate/8_sided"
+        },
+        "when": {
+          "material": "chocolate",
+          "sides": 8
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/chocolate/10_sided"
+        },
+        "when": {
+          "material": "chocolate",
+          "sides": 10
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/chocolate/12_sided"
+        },
+        "when": {
+          "material": "chocolate",
+          "sides": 12
+        }
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/chocolate/20_sided"
+        },
+        "when": {
+          "material": "chocolate",
+          "sides": 20
+        }
       }
     ],
-    "property": "fantasydice:material"
+    "property": "fantasydice:die"
   }
 }

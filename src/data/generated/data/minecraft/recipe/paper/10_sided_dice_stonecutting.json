@@ -3,10 +3,11 @@
   "ingredient": "minecraft:paper",
   "result": {
     "components": {
-      "fantasydice:material": "paper",
-      "fantasydice:sides": 10
+      "fantasydice:die": {
+        "material": "paper",
+        "sides": 10
+      }
     },
-    "count": 1,
     "id": "fantasydice:dice"
   }
 }

@@ -1,6 +1,5 @@
-package dev.apexstudios.fantasydice;
+package dev.apexstudios.fantasydice.common;
 
-import dev.apexstudios.fantasydice.util.DiceRegistries;
 import net.minecraft.SharedConstants;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -15,6 +14,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityReference;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.SlotAccess;
 import net.minecraft.world.entity.TraceableEntity;
@@ -26,7 +26,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.storage.ValueInput;
 import net.minecraft.world.level.storage.ValueOutput;
 import net.minecraft.world.phys.shapes.Shapes;
-import org.jetbrains.annotations.Nullable;
+import org.jspecify.annotations.Nullable;
 
 public class DiceEntity extends Entity implements TraceableEntity {
     public static final String NBT_AGE = "Age";
@@ -46,11 +46,17 @@ public class DiceEntity extends Entity implements TraceableEntity {
         setYRot(getRandom().nextFloat() * 360F);
     }
 
-    public DiceEntity(Level level, ItemStack stack, @Nullable Entity thrower) {
-        this(DiceRegistries.DICE_ENTITY.value(), level);
+    public DiceEntity(Level level, double x, double y, double z, ItemStack stack) {
+        this(FantasyDice.DICE_ENTITY.value(), level);
 
-        setItem(stack);
-        setThrower(thrower);
+        setPos(x, y, z);
+        setItem(stack.copyWithCount(1));
+
+        setDeltaMovement(
+                random.nextDouble() * .2D - .1D,
+                .2D,
+                random.nextDouble() * .2D - .1D
+        );
     }
 
     @Override
@@ -160,7 +166,8 @@ public class DiceEntity extends Entity implements TraceableEntity {
         }
 
         age++;
-        needsSync = needsSync | updateInWaterStateAndDoFluidPushing();
+        // needsSync = needsSync | updateInWaterStateAndDoFluidPushing();
+        needsSync = needsSync | updateFluidInteraction(); // TODO: Look into reverting once neo fluid changes are inplace
 
         if(!level().isClientSide()) {
             var d0 = getDeltaMovement().subtract(delta).lengthSqr();
@@ -216,14 +223,6 @@ public class DiceEntity extends Entity implements TraceableEntity {
         getEntityData().set(DATA_ITEM, stack);
     }
 
-    @Override
-    public void onSyncedDataUpdated(EntityDataAccessor<?> key) {
-        super.onSyncedDataUpdated(key);
-
-        if(DATA_ITEM.equals(key))
-            getItem().setEntityRepresentation(this);
-    }
-
     public void setThrower(Entity thrower) {
         this.thrower = EntityReference.of(thrower);
     }
@@ -244,8 +243,33 @@ public class DiceEntity extends Entity implements TraceableEntity {
     }
 
     public int getLifeTime() {
-        var lifeTime = level() instanceof ServerLevel sLevel ? sLevel.getGameRules().get(DiceRegistries.RULE_DICE_LIFETIME.value()) : DEFAULT_LIFETIME;
+        var lifeTime = level() instanceof ServerLevel sLevel ? sLevel.getGameRules().get(FantasyDice.RULE_DICE_LIFETIME.value()) : DEFAULT_LIFETIME;
         // gamerule format is in seconds, * by 20 to convert to ticks
         return lifeTime * SharedConstants.TICKS_PER_SECOND;
+    }
+
+    public static DiceEntity createDiceEntity(Level level, ItemStack stack, LivingEntity thrower) {
+        // copied from LivingEntity#createItemStackToDrop
+        var yHandPos = thrower.getEyeY() - .3F;
+
+        var dice = new DiceEntity(level, thrower.getX(), yHandPos, thrower.getZ(), stack);
+        dice.setThrower(thrower);
+        var random = thrower.getRandom();
+
+        var pow = .3F;
+        var sinX = Mth.sin(thrower.getXRot() * (float) (Math.PI / 180F));
+        var cosX = Mth.cos(thrower.getXRot() * (float) (Math.PI / 180F));
+        var sinY = Mth.sin(thrower.getYRot() * (float) (Math.PI / 180F));
+        var cosY = Mth.cos(thrower.getYRot() * (float) (Math.PI / 180F));
+        var dir = random.nextFloat() * (float) (Math.PI * 2F);
+        var pow2 = .02F * random.nextFloat();
+
+        dice.setDeltaMovement(
+                -sinY * cosX * pow + Math.cos(dir) * pow2,
+                -sinX * pow + .1F + (random.nextFloat() - random.nextFloat()) * .1F,
+                cosY * cosX * pow + Math.sin(dir) * pow2
+        );
+
+        return dice;
     }
 }

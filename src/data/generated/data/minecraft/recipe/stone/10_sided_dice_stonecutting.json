@@ -3,10 +3,11 @@
   "ingredient": "#c:stones",
   "result": {
     "components": {
-      "fantasydice:material": "stone",
-      "fantasydice:sides": 10
+      "fantasydice:die": {
+        "material": "stone",
+        "sides": 10
+      }
     },
-    "count": 1,
     "id": "fantasydice:dice"
   }
 }
