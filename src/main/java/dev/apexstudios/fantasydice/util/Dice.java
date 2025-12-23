@@ -80,15 +80,16 @@ public interface Dice {
         var z = Math.floor(thrower.getZ());
         var color = thrower.getTeamColor();
         var diceStack = stack.copyWithCount(1);
+        var random = level.getRandom();
 
         for(var i = 0; i < count; i++) {
-            var roll = level.random.nextInt(sides) + 1;
+            var roll = random.nextInt(sides) + 1;
             var dice = createDiceEntity(level, diceStack, thrower);
 
             dice.setPos(
-                    x + level.random.nextDouble() * d1 + d2,
+                    x + random.nextDouble() * d1 + d2,
                     y,
-                    z + level.random.nextDouble() * d1 + d2
+                    z + random.nextDouble() * d1 + d2
             );
 
             dice.setCustomName(Component.literal(String.valueOf(roll)).withColor(color));
