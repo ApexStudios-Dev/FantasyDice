@@ -2,7 +2,7 @@ package dev.apexstudios.fantasydice.client.renderer;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import com.mojang.math.Axis;
-import dev.apexstudios.fantasydice.DiceEntity;
+import dev.apexstudios.fantasydice.common.DiceEntity;
 import net.minecraft.client.renderer.SubmitNodeCollector;
 import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;

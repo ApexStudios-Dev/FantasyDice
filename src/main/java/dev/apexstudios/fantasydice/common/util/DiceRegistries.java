@@ -1,7 +1,7 @@
-package dev.apexstudios.fantasydice.util;
+package dev.apexstudios.fantasydice.common.util;
 
-import dev.apexstudios.fantasydice.DiceEntity;
-import dev.apexstudios.fantasydice.FantasyDice;
+import dev.apexstudios.fantasydice.common.DiceEntity;
+import dev.apexstudios.fantasydice.common.FantasyDice;
 import dev.apexstudios.registree.api.Registree;
 import dev.apexstudios.registree.api.holder.DeferredDataComponent;
 import dev.apexstudios.registree.api.holder.DeferredEntity;

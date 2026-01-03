@@ -1,8 +1,8 @@
 package dev.apexstudios.fantasydice.client;
 
-import dev.apexstudios.fantasydice.FantasyDice;
 import dev.apexstudios.fantasydice.client.renderer.DiceEntityRenderer;
-import dev.apexstudios.fantasydice.util.DiceRegistries;
+import dev.apexstudios.fantasydice.common.FantasyDice;
+import dev.apexstudios.fantasydice.common.util.DiceRegistries;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;

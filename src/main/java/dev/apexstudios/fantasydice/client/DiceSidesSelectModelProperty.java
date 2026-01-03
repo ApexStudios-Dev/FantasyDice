@@ -2,8 +2,8 @@ package dev.apexstudios.fantasydice.client;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.MapCodec;
-import dev.apexstudios.fantasydice.util.DiceCodecs;
-import dev.apexstudios.fantasydice.util.DiceRegistries;
+import dev.apexstudios.fantasydice.common.util.DiceCodecs;
+import dev.apexstudios.fantasydice.common.util.DiceRegistries;
 import net.minecraft.client.multiplayer.ClientLevel;
 import net.minecraft.client.renderer.item.properties.select.SelectItemModelProperty;
 import net.minecraft.world.entity.LivingEntity;

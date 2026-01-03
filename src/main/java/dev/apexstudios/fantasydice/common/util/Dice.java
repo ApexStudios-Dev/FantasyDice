@@ -1,8 +1,8 @@
-package dev.apexstudios.fantasydice.util;
+package dev.apexstudios.fantasydice.common.util;
 
-import dev.apexstudios.apexcore.lib.util.StringHelper;
-import dev.apexstudios.fantasydice.DiceEntity;
-import dev.apexstudios.fantasydice.FantasyDice;
+import dev.apexstudios.apexcore.api.util.StringHelper;
+import dev.apexstudios.fantasydice.common.DiceEntity;
+import dev.apexstudios.fantasydice.common.FantasyDice;
 import java.util.Objects;
 import net.minecraft.core.component.DataComponentHolder;
 import net.minecraft.network.chat.Component;

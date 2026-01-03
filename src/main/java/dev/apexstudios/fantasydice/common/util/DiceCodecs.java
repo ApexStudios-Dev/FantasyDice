@@ -1,4 +1,4 @@
-package dev.apexstudios.fantasydice.util;
+package dev.apexstudios.fantasydice.common.util;
 
 import com.mojang.serialization.Codec;
 import com.mojang.serialization.DataResult;

@@ -1,6 +1,6 @@
-package dev.apexstudios.fantasydice;
+package dev.apexstudios.fantasydice.common;
 
-import dev.apexstudios.fantasydice.util.DiceRegistries;
+import dev.apexstudios.fantasydice.common.util.DiceRegistries;
 import net.minecraft.SharedConstants;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
