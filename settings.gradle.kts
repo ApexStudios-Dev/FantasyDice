@@ -7,16 +7,9 @@ pluginManagement {
     resolutionStrategy {
         eachPlugin {
             if(requested.id.namespace == "apex-conventions") {
-                useVersion("0.1.90")
+                useVersion("0.1.91")
             }
         }
-    }
-}
-
-dependencyResolutionManagement {
-    versionCatalogs.create("libs") {
-        library("registree", "dev.apexstudios", "registree").version("26.1.4-beta-pr-17") // match version ApexCore is compiled against
-        library("apexcore", "dev.apexstudios", "apexcore").version("26.1.5-beta-pr-70")
     }
 }
 
