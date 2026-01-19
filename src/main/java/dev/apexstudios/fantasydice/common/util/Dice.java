@@ -5,10 +5,12 @@ import dev.apexstudios.fantasydice.common.DiceEntity;
 import dev.apexstudios.fantasydice.common.FantasyDice;
 import java.util.Objects;
 import net.minecraft.core.component.DataComponentHolder;
+import net.minecraft.core.component.DataComponentPatch;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.level.Level;
 import net.neoforged.neoforge.common.MutableDataComponentHolder;
 import org.jspecify.annotations.Nullable;
@@ -51,11 +53,12 @@ public interface Dice {
         return Component.translatable(Dice.DESCRIPTION_ID, materialName, sides);
     }
 
-    static ItemStack create(int sides, String material) {
-        var stack = DiceRegistries.DICE_ITEM.toStack();
-        setMaterial(stack, material);
-        setSides(stack, sides);
-        return stack;
+    static ItemStackTemplate create(int sides, String material) {
+        return new ItemStackTemplate(DiceRegistries.DICE_ITEM, 1, DataComponentPatch.builder()
+                .set(DiceRegistries.SIDES_COMPONENT.value(), sides)
+                .set(DiceRegistries.MATERIAL_COMPONENT.value(), material)
+                .build()
+        );
     }
 
     static boolean throwDice(Level level, ItemStack stack, LivingEntity thrower) {

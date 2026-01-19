@@ -30,10 +30,10 @@ public interface DiceRegistries {
             .updateInterval(SharedConstants.TICKS_PER_SECOND)
     );
 
-    ResourceKey<CreativeModeTab> CREATIVE_MODE_TAB = REGISTREE.registerCreativeModeTab("dice", () -> Dice.create(Dice.DEFAULT_SIDES[0], Dice.DEFAULT_MATERIALS[0]), (parameters, output) -> {
+    ResourceKey<CreativeModeTab> CREATIVE_MODE_TAB = REGISTREE.registerCreativeModeTab("dice", () -> Dice.create(Dice.DEFAULT_SIDES[0], Dice.DEFAULT_MATERIALS[0]).create(), (parameters, output) -> {
         for(var material : Dice.DEFAULT_MATERIALS) {
             for(var side : Dice.DEFAULT_SIDES) {
-                output.accept(Dice.create(side, material));
+                output.accept(Dice.create(side, material).create());
             }
         }
     });

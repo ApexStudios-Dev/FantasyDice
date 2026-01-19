@@ -6,7 +6,6 @@
       "fantasydice:material": "iron",
       "fantasydice:sides": 8
     },
-    "count": 1,
     "id": "fantasydice:dice"
   }
 }
