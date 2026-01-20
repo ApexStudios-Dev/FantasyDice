@@ -1,11 +1,11 @@
 package dev.apexstudios.fantasydice.common.util;
 
-import dev.apexstudios.apexcore.api.util.ItemTemplateBuilder;
 import dev.apexstudios.apexcore.api.util.StringHelper;
 import dev.apexstudios.fantasydice.common.DiceEntity;
 import dev.apexstudios.fantasydice.common.FantasyDice;
 import java.util.Objects;
 import net.minecraft.core.component.DataComponentHolder;
+import net.minecraft.core.component.DataComponentPatch;
 import net.minecraft.network.chat.Component;
 import net.minecraft.util.Mth;
 import net.minecraft.world.entity.LivingEntity;
@@ -54,10 +54,11 @@ public interface Dice {
     }
 
     static ItemStackTemplate create(int sides, String material) {
-        return ItemTemplateBuilder.from(DiceRegistries.DICE_ITEM)
-                .with(DiceRegistries.SIDES_COMPONENT, sides)
-                .with(DiceRegistries.MATERIAL_COMPONENT, material)
-                .build();
+        return new ItemStackTemplate(DiceRegistries.DICE_ITEM, DataComponentPatch.builder()
+                .set(DiceRegistries.SIDES_COMPONENT.value(), sides)
+                .set(DiceRegistries.MATERIAL_COMPONENT.value(), material)
+                .build()
+        );
     }
 
     static boolean throwDice(Level level, ItemStack stack, LivingEntity thrower) {
