@@ -216,14 +216,6 @@ public class DiceEntity extends Entity implements TraceableEntity {
         getEntityData().set(DATA_ITEM, stack);
     }
 
-    @Override
-    public void onSyncedDataUpdated(EntityDataAccessor<?> key) {
-        super.onSyncedDataUpdated(key);
-
-        if(DATA_ITEM.equals(key))
-            getItem().setEntityRepresentation(this);
-    }
-
     public void setThrower(Entity thrower) {
         this.thrower = EntityReference.of(thrower);
     }
