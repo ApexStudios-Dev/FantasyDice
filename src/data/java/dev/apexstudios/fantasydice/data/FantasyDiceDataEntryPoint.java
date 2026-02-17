@@ -21,6 +21,7 @@ import net.minecraft.client.data.models.model.ItemModelUtils;
 import net.minecraft.client.data.models.model.ModelInstance;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.data.models.model.TextureMapping;
+import net.minecraft.client.renderer.block.model.Material;
 import net.minecraft.client.renderer.item.ItemModel;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.resources.Identifier;
@@ -91,7 +92,7 @@ public final class FantasyDiceDataEntryPoint {
         if(model == null) {
             model = ItemModelUtils.plainModel(ModelTemplates.FLAT_ITEM.create(
                     FantasyDice.identifier("item/" + material + '/' + sides + "_sided"),
-                    TextureMapping.layer0(FantasyDice.identifier("item/" + material + '/' + sides + "_sided")),
+                    TextureMapping.layer0(new Material(FantasyDice.identifier("item/" + material + '/' + sides + "_sided"))),
                     modelOutput
             ));
             diceModels.put(sides, material, model);
