@@ -160,7 +160,8 @@ public class DiceEntity extends Entity implements TraceableEntity {
         }
 
         age++;
-        needsSync = needsSync | updateInWaterStateAndDoFluidPushing();
+        // needsSync = needsSync | updateInWaterStateAndDoFluidPushing();
+        needsSync = needsSync | updateFluidInteraction(); // TODO: Look into reverting once neo fluid changes are inplace
 
         if(!level().isClientSide()) {
             var d0 = getDeltaMovement().subtract(delta).lengthSqr();
