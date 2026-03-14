@@ -53,13 +53,10 @@ public record Die(String material, int sides) implements TooltipProvider {
     public void throwInLevel(Level level, ItemStack stack, LivingEntity thrower) {
         var count = stack.getCount();
 
-        var d0 = FantasyDice.DICE_ENTITY.value().getWidth() + 2.5F;
+        var d0 = FantasyDice.DICE_ENTITY.value().getWidth() - .5F;
         var d1 = 1D - d0;
         var d2 = d0 / 2D;
 
-        var x = Math.floor(thrower.getX());
-        var y = thrower.getEyeY() - .3F;
-        var z = Math.floor(thrower.getZ());
         var color = thrower.getTeamColor();
         var diceStack = stack.copyWithCount(1);
         var random = level.getRandom();
@@ -68,11 +65,13 @@ public record Die(String material, int sides) implements TooltipProvider {
             var roll = random.nextInt(sides) + 1;
             var dice = DiceEntity.createDiceEntity(level, diceStack, thrower);
 
-            dice.setPos(
-                    x + random.nextDouble() * d1 + d2,
-                    y,
-                    z + random.nextDouble() * d1 + d2
-            );
+            if(i != 0) {
+                dice.setPos(
+                        dice.getX() + random.nextDouble() * (d1 + d2),
+                        dice.getY(),
+                        dice.getZ() - random.nextDouble() * (d1 + d2)
+                );
+            }
 
             dice.setCustomName(Component.literal(String.valueOf(roll)).withColor(color));
             dice.setCustomNameVisible(true);
