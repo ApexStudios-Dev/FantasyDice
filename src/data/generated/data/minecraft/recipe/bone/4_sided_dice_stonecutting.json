@@ -3,8 +3,10 @@
   "ingredient": "#c:bones",
   "result": {
     "components": {
-      "fantasydice:material": "bone",
-      "fantasydice:sides": 4
+      "fantasydice:die": {
+        "material": "bone",
+        "sides": 4
+      }
     },
     "id": "fantasydice:dice"
   }

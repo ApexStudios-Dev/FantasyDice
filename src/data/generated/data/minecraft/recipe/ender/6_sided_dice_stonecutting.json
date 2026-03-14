@@ -3,8 +3,10 @@
   "ingredient": "#c:ender_pearls",
   "result": {
     "components": {
-      "fantasydice:material": "ender",
-      "fantasydice:sides": 6
+      "fantasydice:die": {
+        "material": "ender",
+        "sides": 6
+      }
     },
     "id": "fantasydice:dice"
   }

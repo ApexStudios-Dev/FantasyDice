@@ -3,8 +3,10 @@
   "ingredient": "#c:crops/cocoa_bean",
   "result": {
     "components": {
-      "fantasydice:material": "chocolate",
-      "fantasydice:sides": 8
+      "fantasydice:die": {
+        "material": "chocolate",
+        "sides": 8
+      }
     },
     "id": "fantasydice:dice"
   }

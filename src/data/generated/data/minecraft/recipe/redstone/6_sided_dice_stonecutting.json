@@ -3,8 +3,10 @@
   "ingredient": "#c:dusts/redstone",
   "result": {
     "components": {
-      "fantasydice:material": "redstone",
-      "fantasydice:sides": 6
+      "fantasydice:die": {
+        "material": "redstone",
+        "sides": 6
+      }
     },
     "id": "fantasydice:dice"
   }

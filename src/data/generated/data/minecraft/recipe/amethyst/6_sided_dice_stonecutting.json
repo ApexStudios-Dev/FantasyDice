@@ -3,8 +3,10 @@
   "ingredient": "#c:gems/amethyst",
   "result": {
     "components": {
-      "fantasydice:material": "amethyst",
-      "fantasydice:sides": 6
+      "fantasydice:die": {
+        "material": "amethyst",
+        "sides": 6
+      }
     },
     "id": "fantasydice:dice"
   }

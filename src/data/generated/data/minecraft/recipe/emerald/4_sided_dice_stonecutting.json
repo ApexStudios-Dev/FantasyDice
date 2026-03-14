@@ -3,8 +3,10 @@
   "ingredient": "#c:gems/emerald",
   "result": {
     "components": {
-      "fantasydice:material": "emerald",
-      "fantasydice:sides": 4
+      "fantasydice:die": {
+        "material": "emerald",
+        "sides": 4
+      }
     },
     "id": "fantasydice:dice"
   }

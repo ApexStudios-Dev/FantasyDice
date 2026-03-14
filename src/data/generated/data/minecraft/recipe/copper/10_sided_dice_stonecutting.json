@@ -3,8 +3,10 @@
   "ingredient": "#c:ingots/copper",
   "result": {
     "components": {
-      "fantasydice:material": "copper",
-      "fantasydice:sides": 10
+      "fantasydice:die": {
+        "material": "copper",
+        "sides": 10
+      }
     },
     "id": "fantasydice:dice"
   }

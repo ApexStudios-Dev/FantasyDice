@@ -1,6 +1,5 @@
 package dev.apexstudios.fantasydice.common;
 
-import dev.apexstudios.fantasydice.common.util.DiceRegistries;
 import net.minecraft.SharedConstants;
 import net.minecraft.core.BlockPos;
 import net.minecraft.network.chat.Component;
@@ -15,6 +14,7 @@ import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityReference;
 import net.minecraft.world.entity.EntityType;
+import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.SlotAccess;
 import net.minecraft.world.entity.TraceableEntity;
@@ -47,7 +47,7 @@ public class DiceEntity extends Entity implements TraceableEntity {
     }
 
     public DiceEntity(Level level, ItemStack stack, @Nullable Entity thrower) {
-        this(DiceRegistries.DICE_ENTITY.value(), level);
+        this(FantasyDice.DICE_ENTITY.value(), level);
 
         setItem(stack);
         setThrower(thrower);
@@ -237,8 +237,30 @@ public class DiceEntity extends Entity implements TraceableEntity {
     }
 
     public int getLifeTime() {
-        var lifeTime = level() instanceof ServerLevel sLevel ? sLevel.getGameRules().get(DiceRegistries.RULE_DICE_LIFETIME.value()) : DEFAULT_LIFETIME;
+        var lifeTime = level() instanceof ServerLevel sLevel ? sLevel.getGameRules().get(FantasyDice.RULE_DICE_LIFETIME.value()) : DEFAULT_LIFETIME;
         // gamerule format is in seconds, * by 20 to convert to ticks
         return lifeTime * SharedConstants.TICKS_PER_SECOND;
+    }
+
+    public static DiceEntity createDiceEntity(Level level, ItemStack stack, LivingEntity thrower) {
+        var random = thrower.getRandom();
+
+        // copied from LivingEntity#createItemStackToDrop
+        var f8 = Mth.sin(thrower.getXRot() * (float) (Math.PI / 180F));
+        var f2 = Mth.cos(thrower.getXRot() * (float) (Math.PI / 180F));
+        var f3 = Mth.sin(thrower.getYRot() * (float) (Math.PI / 180F));
+        var f4 = Mth.cos(thrower.getYRot() * (float) (Math.PI / 180F));
+        var f5 = random.nextFloat();
+        var f6 = .02F * random.nextFloat();
+
+        var dice = new DiceEntity(level, stack.copyWithCount(1), thrower);
+
+        dice.setDeltaMovement(
+                -f3 * f2 * .3F + Math.cos(f5) * f6,
+                -f8 * .3F + .1F + (random.nextFloat() - random.nextFloat()) * .1F,
+                f4 * f2 * .3F + Math.sin(f5) * f6
+        );
+
+        return dice;
     }
 }

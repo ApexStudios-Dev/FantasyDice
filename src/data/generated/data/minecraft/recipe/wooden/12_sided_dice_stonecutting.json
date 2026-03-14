@@ -3,8 +3,10 @@
   "ingredient": "#minecraft:planks",
   "result": {
     "components": {
-      "fantasydice:material": "wooden",
-      "fantasydice:sides": 12
+      "fantasydice:die": {
+        "material": "wooden",
+        "sides": 12
+      }
     },
     "id": "fantasydice:dice"
   }

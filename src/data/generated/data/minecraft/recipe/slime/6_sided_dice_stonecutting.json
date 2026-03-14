@@ -3,8 +3,10 @@
   "ingredient": "#c:slime_balls",
   "result": {
     "components": {
-      "fantasydice:material": "slime",
-      "fantasydice:sides": 6
+      "fantasydice:die": {
+        "material": "slime",
+        "sides": 6
+      }
     },
     "id": "fantasydice:dice"
   }

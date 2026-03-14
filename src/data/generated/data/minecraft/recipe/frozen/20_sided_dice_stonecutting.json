@@ -3,8 +3,10 @@
   "ingredient": "minecraft:ice",
   "result": {
     "components": {
-      "fantasydice:material": "frozen",
-      "fantasydice:sides": 20
+      "fantasydice:die": {
+        "material": "frozen",
+        "sides": 20
+      }
     },
     "id": "fantasydice:dice"
   }

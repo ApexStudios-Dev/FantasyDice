@@ -3,8 +3,10 @@
   "ingredient": "#c:gems/diamond",
   "result": {
     "components": {
-      "fantasydice:material": "diamond",
-      "fantasydice:sides": 4
+      "fantasydice:die": {
+        "material": "diamond",
+        "sides": 4
+      }
     },
     "id": "fantasydice:dice"
   }
