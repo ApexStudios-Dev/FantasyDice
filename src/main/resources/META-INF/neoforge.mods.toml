@@ -12,9 +12,15 @@ logoFile = "logo.png"
 displayURL = "https://modrinth.com/mod/fantasy-dice"
 
 [[dependencies.fantasydice]]
+modId = "minecraft"
+type = "required"
+versionRange = "[26.1,26.2)"
+ordering = "NONE"
+side = "BOTH"
+[[dependencies.fantasydice]]
 modId = "neoforge"
 type = "required"
-versionRange = "[26.1-beta,26.2)"
+versionRange = "[26.1,26.2)"
 ordering = "NONE"
 side = "BOTH"
 
