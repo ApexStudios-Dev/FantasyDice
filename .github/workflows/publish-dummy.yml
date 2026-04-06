@@ -20,3 +20,4 @@ jobs:
       artifact-id: fantasydice
       display-name: Fantasy's Dice
       use-self-runner: false
+      build-task: ':build'
