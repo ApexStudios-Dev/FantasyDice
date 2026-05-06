@@ -50,11 +50,6 @@ public final class FantasyDice {
 
         NeoForge.EVENT_BUS.addListener(PlayerInteractEvent.RightClickItem.class, event -> {
             var level = event.getLevel();
-
-            if(level.isClientSide()) {
-                return;
-            }
-
             var player = event.getEntity();
             var hand = event.getHand();
 
@@ -65,8 +60,14 @@ public final class FantasyDice {
                 return;
             }
 
-            die.throwInLevel(level, stack, player);
-            event.setCancellationResult(InteractionResult.SUCCESS_SERVER);
+            var result = InteractionResult.SUCCESS;
+
+            if(!level.isClientSide()) {
+                die.throwInLevel(level, stack, player);
+                result = InteractionResult.SUCCESS_SERVER;
+            }
+
+            event.setCancellationResult(result);
             event.setCanceled(true);
         });
 
