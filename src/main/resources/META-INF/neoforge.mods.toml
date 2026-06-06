@@ -14,25 +14,23 @@ displayURL = "https://modrinth.com/mod/fantasy-dice"
 [[dependencies.fantasydice]]
 modId = "minecraft"
 type = "required"
-versionRange = "[26.1,26.2)"
+versionRange = "[26.2,26.3)"
 ordering = "NONE"
 side = "BOTH"
 [[dependencies.fantasydice]]
 modId = "neoforge"
 type = "required"
-versionRange = "[26.1,26.2)"
+versionRange = "[26.2-alpha,26.3)"
 ordering = "NONE"
 side = "BOTH"
 
 [[dependencies.fantasydice]]
 modId = "apexcore"
 type = "required"
-versionRange = "[26.1,26.2)"
+versionRange = "[26.2,26.3)"
 [dependencies.fantasydice.mc-publish]
 modrinth = "xl3myxch"
 curseforge = "550778"
 
 [[accessTransformers]]
 file = "META-INF/accesstransformer.cfg"
-#[[mixins]]
-#    config="META-INF/fantasydice.mixins.json"
