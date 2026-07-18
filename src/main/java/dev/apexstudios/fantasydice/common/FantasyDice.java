@@ -15,6 +15,8 @@ import net.minecraft.world.item.Item;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.common.NeoForge;
+import net.neoforged.neoforge.common.tooltip.TooltipAppender;
+import net.neoforged.neoforge.event.RegisterTooltipAppendersEvent;
 import net.neoforged.neoforge.event.entity.player.PlayerInteractEvent;
 import net.neoforged.neoforge.registries.DeferredItem;
 
@@ -55,6 +57,8 @@ public final class FantasyDice {
 
     public FantasyDice(IEventBus modBus) {
         REGISTREE.register(modBus);
+
+        modBus.addListener(RegisterTooltipAppendersEvent.class, event -> event.registerComponentAppenderBeforeAll(DIE_COMPONENT, TooltipAppender.createComponentAppender(DIE_COMPONENT.value())));
 
         NeoForge.EVENT_BUS.addListener(PlayerInteractEvent.RightClickItem.class, event -> {
             var level = event.getLevel();
