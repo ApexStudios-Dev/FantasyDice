@@ -8,7 +8,8 @@ displayName = "FantasyDice"
 credits = "Apex - Programming, Fantasy - Artist"
 authors = "ApexStudios"
 description = "Fantasy's Dice adds various Dungeons & Dragons inspired Dice to Minecraft."
-logoFile = "logo.png"
+bannerFile = "banner.png"
+iconFile = "icon.png"
 displayURL = "https://modrinth.com/mod/fantasy-dice"
 
 [[dependencies.fantasydice]]
