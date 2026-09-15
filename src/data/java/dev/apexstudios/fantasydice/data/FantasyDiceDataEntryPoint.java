@@ -2,7 +2,9 @@ package dev.apexstudios.fantasydice.data;
 
 import dev.apexstudios.fantasydice.common.FantasyDice;
 import net.minecraft.core.RegistrySetBuilder;
+import net.minecraft.data.metadata.PackMetadataGenerator;
 import net.minecraft.data.recipes.RecipeProvider;
+import net.minecraft.network.chat.Component;
 import net.neoforged.api.distmarker.Dist;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.common.Mod;
@@ -19,6 +21,7 @@ public final class FantasyDiceDataEntryPoint {
             event.createProvider(FDLanguageProvider::new);
             event.createProvider(FDModelProvider::new);
             event.createProvider(FDEntityTypeTagsProvider::new);
+            event.createProvider(output -> PackMetadataGenerator.forFeaturePack(output, Component.literal("Fantasy's Dice resources")));
         });
     }
 }
