@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:netherite/8_sided_dice_stonecutting"
+        "recipes": "minecraft:netherite/8_sided_dice_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

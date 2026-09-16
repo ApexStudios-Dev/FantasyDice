@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:paper/20_sided_dice_stonecutting"
+        "recipes": "minecraft:paper/20_sided_dice_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
