@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:ender/4_sided_dice_stonecutting"
+        "recipes": "minecraft:ender/4_sided_dice_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
