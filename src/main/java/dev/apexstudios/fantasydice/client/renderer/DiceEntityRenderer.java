@@ -53,7 +53,7 @@ public class DiceEntityRenderer extends EntityRenderer<DiceEntity, ItemEntityRen
         var f1 = renderState.shouldBob ? Mth.sin(renderState.ageInTicks / 10F + renderState.bobOffset) * .1F + .1F : 0F;
         pose.translate(0F, f1 + f, 0F);
         var f2 = ItemEntity.getSpin(renderState.ageInTicks, renderState.bobOffset);
-        pose.mulPose(Axis.YP.rotation(f2));
+        pose.rotate(Axis.YP, f2);
         ItemEntityRenderer.submitMultipleFromCount(pose, nodes, renderState.lightCoords, renderState, random, aabb);
         pose.popPose();
 

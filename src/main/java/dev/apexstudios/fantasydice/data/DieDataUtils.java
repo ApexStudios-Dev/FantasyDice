@@ -1,7 +1,5 @@
 package dev.apexstudios.fantasydice.data;
 
-import dev.apexstudios.apexcore.api.data.provider.RecipeProvider;
-import dev.apexstudios.apexcore.common.data.provider.ItemStackRecipeBuilder;
 import dev.apexstudios.fantasydice.client.DieSelectModelProperty;
 import dev.apexstudios.fantasydice.common.Die;
 import dev.apexstudios.fantasydice.common.FantasyDice;
@@ -20,12 +18,12 @@ import net.minecraft.core.Holder;
 import net.minecraft.core.component.DataComponentPatch;
 import net.minecraft.data.recipes.RecipeCategory;
 import net.minecraft.data.recipes.RecipeOutput;
+import net.minecraft.data.recipes.SingleItemRecipeBuilder;
 import net.minecraft.resources.Identifier;
 import net.minecraft.tags.TagKey;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStackTemplate;
 import net.minecraft.world.item.crafting.Ingredient;
-import net.minecraft.world.level.ItemLike;
 
 public interface DieDataUtils {
     static ItemStackTemplate template(Holder<Item> item, String material, int sides) {
@@ -69,7 +67,7 @@ public interface DieDataUtils {
     }
 
     static void recipe(Holder<Item> item, String material, int sides, String hasIngredientName, Ingredient ingredient, Criterion<InventoryChangeTrigger.TriggerInstance> hasIngredient, RecipeOutput output) {
-        ItemStackRecipeBuilder.stonecutting(ingredient, RecipeCategory.MISC, template(item, material, sides))
+        SingleItemRecipeBuilder.stonecutting(ingredient, RecipeCategory.MISC, template(item, material, sides))
                 .unlockedBy(hasIngredientName, hasIngredient)
                 .save(output, material + '/' + sides + "_sided_dice_stonecutting");
     }
@@ -80,15 +78,11 @@ public interface DieDataUtils {
         }
     }
 
-    static void recipe(Holder<Item> item, String material, TagKey<Item> ingredient, RecipeProvider provider) {
-        recipe(item, material, RecipeProvider.getHasName(ingredient), provider.tag(ingredient), provider.has(ingredient), provider.output());
-    }
-
-    static void recipe(Holder<Item> item, String material, ItemLike ingredient, RecipeProvider provider) {
-        recipe(item, material, RecipeProvider.getHasName(ingredient), Ingredient.of(ingredient), provider.has(ingredient), provider.output());
-    }
-
     static String getMaterialKey(String material) {
         return FantasyDice.ID + ".material." + material;
+    }
+
+    static String getHasName(TagKey<Item> tag) {
+        return "has_" + tag.location().getPath().replace("/", "_");
     }
 }

@@ -13,7 +13,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "minecraft:slime/12_sided_dice_stonecutting"
+        "recipes": "minecraft:slime/12_sided_dice_stonecutting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }

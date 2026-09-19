@@ -15,6 +15,7 @@ import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityReference;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.LivingEntity;
+import net.minecraft.world.entity.MoveSimulationType;
 import net.minecraft.world.entity.MoverType;
 import net.minecraft.world.entity.SlotAccess;
 import net.minecraft.world.entity.TraceableEntity;
@@ -59,35 +60,6 @@ public class DiceEntity extends Entity implements TraceableEntity {
         );
     }
 
-    @Override
-    protected void defineSynchedData(SynchedEntityData.Builder builder) {
-        builder.define(DATA_ITEM, ItemStack.EMPTY);
-    }
-
-    @Override
-    public boolean hurtServer(ServerLevel level, DamageSource damageSource, float amount) {
-        return false;
-    }
-
-    @Override
-    protected void readAdditionalSaveData(ValueInput input) {
-        age = input.getIntOr(NBT_AGE, 0);
-        thrower = EntityReference.read(input, NBT_THROWER);
-        setItem(input.read(NBT_ITEM, ItemStack.CODEC).orElse(ItemStack.EMPTY));
-
-        if(getItem().isEmpty())
-            discard();
-    }
-
-    @Override
-    protected void addAdditionalSaveData(ValueOutput output) {
-        output.putInt(NBT_AGE, age);
-        EntityReference.store(thrower, output, NBT_THROWER);
-
-        if(!getItem().isEmpty())
-            output.store(NBT_ITEM, ItemStack.CODEC, getItem());
-    }
-
     @Nullable
     @Override
     public Entity getOwner() {
@@ -108,6 +80,11 @@ public class DiceEntity extends Entity implements TraceableEntity {
     }
 
     @Override
+    protected void defineSynchedData(SynchedEntityData.Builder builder) {
+        builder.define(DATA_ITEM, ItemStack.EMPTY);
+    }
+
+    @Override
     protected double getDefaultGravity() {
         return .04D;
     }
@@ -125,7 +102,7 @@ public class DiceEntity extends Entity implements TraceableEntity {
         yo = getY();
         zo = getZ();
 
-        var delta = getDeltaMovement();
+        var oldMovement = getDeltaMovement();
 
         if(isInWater() && getFluidHeight(FluidTags.WATER) > ItemEntity.FLOAT_HEIGHT)
             setFluidMovement(.99F);
@@ -144,35 +121,37 @@ public class DiceEntity extends Entity implements TraceableEntity {
                 moveTowardsClosestSpace(getX(), (boundingBox.minY + boundingBox.maxY) / 2D, getZ());
         }
 
-        if(!onGround() || getDeltaMovement().horizontalDistanceSqr() > Mth.EPSILON || (tickCount + getId()) % 4 == 0) {
+        if(onGround() || !(getDeltaMovement().horizontalDistanceSqr() > Mth.EPSILON) && (tickCount + getId()) % 4 != 0) {
+            applyEffectsFromBlocksForLastMovements();
+        } else {
             move(MoverType.SELF, getDeltaMovement());
             applyEffectsFromBlocks();
 
-            var f = .98F;
+            var airDrag = getAirDrag();
+            var groundFriction = airDrag;
 
             if(onGround()) {
                 var groundPos = getBlockPosBelowThatAffectsMyMovement();
-                f = level().getBlockState(groundPos).getFriction(level(), groundPos, this) * f;
+                groundFriction *= level().getBlockState(groundPos).getFriction(level(), groundPos, this);
             }
 
-            setDeltaMovement(getDeltaMovement().multiply(f, f, f));
+            setDeltaMovement(getDeltaMovement().multiply(groundFriction, airDrag, groundFriction));
 
             if(onGround()) {
-                var delta1 = getDeltaMovement();
+                var movement = getDeltaMovement();
 
-                if(delta1.y < 0D)
-                    setDeltaMovement(delta1.multiply(1D, -.5D, 1D));
+                if(movement.y < 0D)
+                    setDeltaMovement(movement.multiply(1D, -.5D, 1D));
             }
         }
 
         age++;
-        // needsSync = needsSync | updateInWaterStateAndDoFluidPushing();
-        needsSync = needsSync | updateFluidInteraction(); // TODO: Look into reverting once neo fluid changes are inplace
+        needsSync = needsSync | updateFluidInteraction();
 
         if(!level().isClientSide()) {
-            var d0 = getDeltaMovement().subtract(delta).lengthSqr();
+            var value = getDeltaMovement().subtract(oldMovement).lengthSqr();
 
-            if(d0 > .01D)
+            if(value > .01D)
                 needsSync = true;
         }
 
@@ -200,8 +179,37 @@ public class DiceEntity extends Entity implements TraceableEntity {
     }
 
     @Override
+    protected boolean shouldPlayLavaHurtSound() {
+        return false;
+    }
+
+    @Override
+    public boolean hurtServer(ServerLevel level, DamageSource damageSource, float amount) {
+        return false;
+    }
+
+    @Override
     public boolean ignoreExplosion(Explosion explosion) {
         return true;
+    }
+
+    @Override
+    protected void readAdditionalSaveData(ValueInput input) {
+        age = input.getIntOr(NBT_AGE, 0);
+        thrower = EntityReference.read(input, NBT_THROWER);
+        setItem(input.read(NBT_ITEM, ItemStack.CODEC).orElse(ItemStack.EMPTY));
+
+        if(getItem().isEmpty())
+            discard();
+    }
+
+    @Override
+    protected void addAdditionalSaveData(ValueOutput output) {
+        output.putInt(NBT_AGE, age);
+        EntityReference.store(thrower, output, NBT_THROWER);
+
+        if(!getItem().isEmpty())
+            output.store(NBT_ITEM, ItemStack.CODEC, getItem());
     }
 
     @Override
@@ -223,10 +231,6 @@ public class DiceEntity extends Entity implements TraceableEntity {
         getEntityData().set(DATA_ITEM, stack);
     }
 
-    public void setThrower(Entity thrower) {
-        this.thrower = EntityReference.of(thrower);
-    }
-
     @Override
     public SoundSource getSoundSource() {
         return SoundSource.AMBIENT;
@@ -240,6 +244,15 @@ public class DiceEntity extends Entity implements TraceableEntity {
     @Override
     public SlotAccess getSlot(int slot) {
         return slot == 0 ? SlotAccess.of(this::getItem, this::setItem) : super.getSlot(slot);
+    }
+
+    @Override
+    public MoveSimulationType getMoveSimulationType() {
+        return MoveSimulationType.SERVER_AND_CLIENT;
+    }
+
+    public void setThrower(Entity thrower) {
+        this.thrower = EntityReference.of(thrower);
     }
 
     public int getLifeTime() {
