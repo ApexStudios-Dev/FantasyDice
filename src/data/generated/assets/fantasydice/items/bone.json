@@ -1,0 +1,51 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "cases": [
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/bone_4_sided"
+        },
+        "when": 4
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/bone_6_sided"
+        },
+        "when": 6
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/bone_8_sided"
+        },
+        "when": 8
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/bone_10_sided"
+        },
+        "when": 10
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/bone_12_sided"
+        },
+        "when": 12
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/bone_20_sided"
+        },
+        "when": 20
+      }
+    ],
+    "component": "fantasydice:dice",
+    "property": "minecraft:component"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "#c:bones",
+  "result": {
+    "id": "fantasydice:bone"
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "cases": [
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/golden_4_sided"
+        },
+        "when": 4
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/golden_6_sided"
+        },
+        "when": 6
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/golden_8_sided"
+        },
+        "when": 8
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/golden_10_sided"
+        },
+        "when": 10
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/golden_12_sided"
+        },
+        "when": 12
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/golden_20_sided"
+        },
+        "when": 20
+      }
+    ],
+    "component": "fantasydice:dice",
+    "property": "minecraft:component"
+  }
+}
