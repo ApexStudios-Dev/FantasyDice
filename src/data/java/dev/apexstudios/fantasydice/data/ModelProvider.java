@@ -3,21 +3,17 @@ package dev.apexstudios.fantasydice.data;
 import dev.apexstudios.fantasydice.api.Dice;
 import dev.apexstudios.fantasydice.api.FantasyDice;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
 import net.minecraft.client.data.models.BlockModelGenerators;
 import net.minecraft.client.data.models.ItemModelGenerators;
 import net.minecraft.client.data.models.model.ItemModelUtils;
 import net.minecraft.client.data.models.model.ModelTemplates;
 import net.minecraft.client.renderer.item.properties.select.ComponentContents;
-import net.minecraft.core.Holder;
-import net.minecraft.core.registries.Registries;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.level.block.Block;
 
-final class ModelProvider extends net.minecraft.client.data.models.ModelProvider {
+final class ModelProvider extends dev.apexstudios.apexcore.api.data.ModelProvider {
     ModelProvider(PackOutput output) {
-        super(output, FantasyDice.ID);
+        super(output, FantasyDice.REGISTREE);
     }
 
     @Override
@@ -50,15 +46,5 @@ final class ModelProvider extends net.minecraft.client.data.models.ModelProvider
                         ))
                         .toList()
         ));
-    }
-
-    @Override
-    protected Stream<? extends Holder<Block>> getKnownBlocks() {
-        return Stream.empty();
-    }
-
-    @Override
-    protected Stream<? extends Holder<Item>> getKnownItems() {
-        return FantasyDice.REGISTREE.registrar(Registries.ITEM).streamHolders();
     }
 }

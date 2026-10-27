@@ -13,7 +13,7 @@ import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.item.crafting.Recipe;
 import net.neoforged.neoforge.common.Tags;
 
-final class RecipeProvider extends net.minecraft.data.recipes.RecipeProvider {
+final class RecipeProvider extends dev.apexstudios.apexcore.api.data.RecipeProvider {
     RecipeProvider(BootstrapContext<Recipe<?>> recipeOutput, BootstrapContext<Advancement> advancementOutput) {
         super(recipeOutput, advancementOutput);
     }
@@ -50,7 +50,7 @@ final class RecipeProvider extends net.minecraft.data.recipes.RecipeProvider {
 
     private void dice(TagKey<Item> material, Item dice) {
         diceBuilder(tag(material), dice)
-                .unlockedBy("has_" + material.location().getPath().replace('/', '_'), has(material))
+                .unlockedBy(getHasName(material), has(material))
                 .save(output);
     }
 }
