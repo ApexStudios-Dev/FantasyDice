@@ -1,19 +1,14 @@
 package dev.apexstudios.fantasydice.api;
 
-import dev.apexstudios.fantasydice.core.DiceEntity;
 import dev.apexstudios.registree.api.Registree;
 import dev.apexstudios.registree.api.holders.DeferredDataComponentType;
-import dev.apexstudios.registree.api.holders.DeferredEntityType;
 import dev.apexstudios.registree.api.holders.DeferredGameRule;
 import dev.apexstudios.registree.api.util.CreativeModeTabRegistrations;
 import dev.apexstudios.registree.api.util.DataComponentRegistrations;
-import dev.apexstudios.registree.api.util.EntityRegistrations;
 import dev.apexstudios.registree.api.util.GameRuleRegistrations;
 import dev.apexstudios.registree.api.util.ItemRegistrations;
 import net.minecraft.SharedConstants;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.entity.MobCategory;
-import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
@@ -23,19 +18,6 @@ public interface FantasyDice {
     String ID = "fantasydice";
     Registree REGISTREE = Registree.create(ID);
     DeferredDataComponentType<Integer> COMPONENT_TYPE = DataComponentRegistrations.register(REGISTREE, "dice", Dice.CODEC, Dice.STREAM_CODEC);
-
-    DeferredEntityType<DiceEntity> DICE = EntityRegistrations.register(
-            REGISTREE,
-            "dice",
-            DiceEntity::new,
-            MobCategory.MISC,
-            builder -> builder
-                    .noLootTable()
-                    .sized(.25F, .25F)
-                    .eyeHeight(ItemEntity.EYE_HEIGHT)
-                    .clientTrackingRange(6)
-                    .updateInterval(SharedConstants.TICKS_PER_SECOND)
-    );
 
     DeferredItem<Item> WOODEN_DICE = dice("wooden");
     DeferredItem<Item> STONE_DICE = dice("stone");
@@ -78,7 +60,7 @@ public interface FantasyDice {
             REGISTREE,
             "dice_lifetime",
             properties -> properties.value(
-                    DiceEntity.DEFAULT_LIFETIME, // default 10 seconds
+                    Dice.DEFAULT_LIFETIME, // default 10 seconds
                     1, // min 1 second
                     (SharedConstants.TICKS_PER_MINUTE * 5) / SharedConstants.TICKS_PER_SECOND // max 5 mins
             )
