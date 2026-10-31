@@ -13,7 +13,11 @@ public final class FantasyDiceEntryPoint {
     public FantasyDiceEntryPoint(IEventBus modBus) {
         FantasyDice.REGISTREE.register(modBus);
 
-        modBus.addListener(RegisterTooltipAppendersEvent.class, event -> event.registerComponentAppenderBeforeAll(FantasyDice.COMPONENT_TYPE, (stack, context, display, player, flag, builder) -> builder.accept(Dice.getDescription(stack))));
+        modBus.addListener(RegisterTooltipAppendersEvent.class, event -> event.registerComponentAppenderBeforeAll(FantasyDice.COMPONENT_TYPE, (stack, context, display, player, flag, builder) -> {
+            if(Dice.is(stack)) {
+                builder.accept(Dice.getDescription(stack));
+            }
+        }));
 
         NeoForge.EVENT_BUS.addListener(PlayerInteractEvent.RightClickItem.class, event -> {
             var stack = event.getItemStack();
