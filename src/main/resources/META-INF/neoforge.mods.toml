@@ -32,6 +32,3 @@ versionRange = "[26.3.4,26.4)"
 [dependencies.fantasydice.mc-publish]
 modrinth = "xl3myxch"
 curseforge = "550778"
-
-[[accessTransformers]]
-file = "META-INF/accesstransformer.cfg"

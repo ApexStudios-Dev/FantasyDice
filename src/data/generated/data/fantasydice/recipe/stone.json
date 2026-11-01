@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "#minecraft:stone_crafting_materials",
+  "result": {
+    "id": "fantasydice:stone"
+  }
+}

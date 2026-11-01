@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "#c:gems/emerald",
+  "result": {
+    "id": "fantasydice:emerald"
+  }
+}

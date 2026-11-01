@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "#c:crops/cocoa_bean",
+  "result": {
+    "id": "fantasydice:chocolate"
+  }
+}

@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "#c:gems/amethyst",
+  "result": {
+    "id": "fantasydice:amethyst"
+  }
+}

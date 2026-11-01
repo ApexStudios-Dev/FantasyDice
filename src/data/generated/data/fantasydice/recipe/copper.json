@@ -1,0 +1,7 @@
+{
+  "type": "minecraft:stonecutting",
+  "ingredient": "#minecraft:copper_tool_materials",
+  "result": {
+    "id": "fantasydice:copper"
+  }
+}

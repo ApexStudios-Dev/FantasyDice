@@ -1,0 +1,51 @@
+{
+  "model": {
+    "type": "minecraft:select",
+    "cases": [
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/slime_4_sided"
+        },
+        "when": 4
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/slime_6_sided"
+        },
+        "when": 6
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/slime_8_sided"
+        },
+        "when": 8
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/slime_10_sided"
+        },
+        "when": 10
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/slime_12_sided"
+        },
+        "when": 12
+      },
+      {
+        "model": {
+          "type": "minecraft:model",
+          "model": "fantasydice:item/slime_20_sided"
+        },
+        "when": 20
+      }
+    ],
+    "component": "fantasydice:dice",
+    "property": "minecraft:component"
+  }
+}
